@@ -1,6 +1,5 @@
 import './globals.css';
 import CookieConsent from '@/components/CookieConsent';
-import SplashPreloader from '@/components/SplashPreloader';
 
 export const metadata = {
   title: 'BesideBanq — Global Money Movement & Intelligent AI Finance',
@@ -75,7 +74,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <SplashPreloader />
         {children}
         <CookieConsent />
       </body>
