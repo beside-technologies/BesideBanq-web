@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ArrowRight } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 // ── Media config ───────────────────────────────────────────────────────────
 // Videos: each plays for MAX 4 seconds then advances automatically
@@ -59,7 +60,7 @@ const STORIES = [
   },
 ];
 
-export default function PeopleSection() {
+export default function PeopleSection({ onOpenWaitlistModal }) {
   // ── Video slideshow state ───────────────────────────────────────────────
   const [videoIdx, setVideoIdx] = useState(0);
   const [videoFading, setVideoFading] = useState(false);
@@ -93,102 +94,108 @@ export default function PeopleSection() {
   const [activeStory, setActiveStory] = useState(null);
 
   return (
-    <section className="py-24 overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
+    <section id="features" className="py-24 overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
       <div className="container space-y-20">
 
         {/* ── Section header ─────────────────────────────────────────── */}
-        <div className="text-center max-w-2xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold"
-            style={{ background: 'rgba(44,43,154,0.08)', color: 'var(--brand-primary)', border: '1px solid rgba(44,43,154,0.15)' }}>
-            🌍 Real People, Real Stories
+        <ScrollReveal direction="up" delay={0}>
+          <div className="text-center max-w-2xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold"
+              style={{ background: 'rgba(44,43,154,0.08)', color: 'var(--brand-primary)', border: '1px solid rgba(44,43,154,0.15)' }}>
+              Real People, Real Stories
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-heading)' }}>
+              Built for the world's{' '}
+              <span style={{
+                background: 'var(--gradient-primary)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>
+                global movers
+              </span>
+            </h2>
+            <p className="text-base leading-relaxed" style={{ color: 'var(--text-sub)' }}>
+              From Lagos to London, Guangzhou to Accra, Toronto to Ibadan: BesideBanq moves with the people who make the world run.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-heading)' }}>
-            Built for the world's{' '}
-            <span style={{
-              background: 'var(--gradient-primary)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>
-              global movers
-            </span>
-          </h2>
-          <p className="text-base leading-relaxed" style={{ color: 'var(--text-sub)' }}>
-            From Lagos to London, Guangzhou to Accra, Toronto to Ibadan — BesideBanq moves with the people who make the world run.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* ── Video Slideshow ────────────────────────────────────────── */}
-        <div className="relative w-full rounded-2xl overflow-hidden"
-          style={{ aspectRatio: '16/7', minHeight: '280px', maxHeight: '480px', background: '#0D0D24' }}>
+        <ScrollReveal direction="scale" delay={150}>
+          <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl"
+            style={{ aspectRatio: '16/7', minHeight: '280px', maxHeight: '480px', background: '#0D0D24' }}>
 
-          {/* Video */}
-          <video
-            ref={videoRef}
-            key={VIDEOS[videoIdx].src}
-            src={VIDEOS[videoIdx].src}
-            autoPlay
-            muted
-            playsInline
-            loop={false}
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-400"
-            style={{ opacity: videoFading ? 0 : 1 }}
-          />
+            {/* Video */}
+            <video
+              ref={videoRef}
+              key={VIDEOS[videoIdx].src}
+              src={VIDEOS[videoIdx].src}
+              autoPlay
+              muted
+              playsInline
+              loop={false}
+              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-400"
+              style={{ opacity: videoFading ? 0 : 1 }}
+            />
 
-          {/* Dark gradient overlay */}
-          <div className="absolute inset-0" style={{
-            background: 'linear-gradient(to top, rgba(13,13,36,0.8) 0%, rgba(13,13,36,0.2) 50%, rgba(13,13,36,0.05) 100%)'
-          }} />
+            {/* Dark gradient overlay */}
+            <div className="absolute inset-0" style={{
+              background: 'linear-gradient(to top, rgba(13,13,36,0.8) 0%, rgba(13,13,36,0.2) 50%, rgba(13,13,36,0.05) 100%)'
+            }} />
 
-          {/* Bottom bar */}
-          <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
-            <p className="text-white text-sm font-bold" style={{ fontFamily: 'var(--font-heading)', textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}>
-              {VIDEOS[videoIdx].label}
-            </p>
+            {/* Bottom bar */}
+            <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
+              <p className="text-white text-sm font-bold" style={{ fontFamily: 'var(--font-heading)', textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}>
+                {VIDEOS[videoIdx].label}
+              </p>
 
-            {/* Progress dots */}
-            <div className="flex items-center gap-2">
-              {VIDEOS.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => { clearTimeout(timerRef.current); setVideoFading(true); setTimeout(() => { setVideoIdx(i); setVideoFading(false); }, 300); }}
-                  className="transition-all duration-300 rounded-full"
-                  style={{
-                    width: i === videoIdx ? '24px' : '8px',
-                    height: '8px',
-                    background: i === videoIdx ? '#0AECD1' : 'rgba(255,255,255,0.4)',
-                  }}
-                />
-              ))}
+              {/* Progress dots */}
+              <div className="flex items-center gap-2">
+                {VIDEOS.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => { clearTimeout(timerRef.current); setVideoFading(true); setTimeout(() => { setVideoIdx(i); setVideoFading(false); }, 300); }}
+                    className="transition-all duration-300 rounded-full"
+                    style={{
+                      width: i === videoIdx ? '24px' : '8px',
+                      height: '8px',
+                      background: i === videoIdx ? '#0AECD1' : 'rgba(255,255,255,0.4)',
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Progress bar (4-second countdown) */}
+            <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: 'rgba(255,255,255,0.1)' }}>
+              <div
+                key={`progress-${videoIdx}`}
+                className="h-full"
+                style={{
+                  background: 'var(--brand-teal)',
+                  animation: `videoProgress ${VIDEO_DURATION}ms linear forwards`,
+                }}
+              />
             </div>
           </div>
-
-          {/* Progress bar (4-second countdown) */}
-          <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: 'rgba(255,255,255,0.1)' }}>
-            <div
-              key={`progress-${videoIdx}`}
-              className="h-full"
-              style={{
-                background: 'var(--brand-teal)',
-                animation: `videoProgress ${VIDEO_DURATION}ms linear forwards`,
-              }}
-            />
-          </div>
-        </div>
+        </ScrollReveal>
 
         {/* ── Story Cards Grid ───────────────────────────────────────── */}
         <div>
-          <h3 className="text-xl font-bold mb-8" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-heading)' }}>
-            People we're building for
-          </h3>
+          <ScrollReveal direction="up" delay={200}>
+            <h3 className="text-xl font-bold mb-8" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-heading)' }}>
+              People we're building for
+            </h3>
+          </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {STORIES.map((story, i) => (
-              <div
-                key={i}
-                className="group relative rounded-2xl overflow-hidden cursor-pointer"
-                style={{ background: '#fff', border: '1px solid rgba(44,43,154,0.08)', boxShadow: '0 4px 20px rgba(44,43,154,0.06)' }}
-                onClick={() => setActiveStory(activeStory === i ? null : i)}
-              >
+              <ScrollReveal key={i} direction="up" delay={100 * (i % 3)}>
+                <div
+                  className="group relative rounded-2xl overflow-hidden cursor-pointer h-full"
+                  style={{ background: '#fff', border: '1px solid rgba(44,43,154,0.08)', boxShadow: '0 4px 20px rgba(44,43,154,0.06)' }}
+                  onClick={() => setActiveStory(activeStory === i ? null : i)}
+                >
                 {/* Photo */}
                 <div className="relative overflow-hidden" style={{ aspectRatio: '4/3' }}>
                   <img
@@ -221,20 +228,26 @@ export default function PeopleSection() {
                   </p>
                 </div>
               </div>
-            ))}
+            </ScrollReveal>
+          ))}
           </div>
         </div>
 
         {/* ── Bottom CTA ────────────────────────────────────────────── */}
-        <div className="text-center">
-          <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>
-            Join the community of global movers
-          </p>
-          <button className="btn-primary px-8 py-4 text-base">
-            <span>Claim your @tag today</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
+        <ScrollReveal direction="up" delay={250}>
+          <div className="text-center">
+            <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>
+              Join the community of global movers
+            </p>
+            <button
+              onClick={onOpenWaitlistModal}
+              className="btn-primary px-8 py-4 text-base"
+            >
+              <span>Claim your @tag today</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </ScrollReveal>
 
       </div>
 

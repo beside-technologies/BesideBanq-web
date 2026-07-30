@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Smartphone } from 'lucide-react';
+import { ArrowRight, Smartphone } from 'lucide-react';
 
 export default function Navbar({ isPreLaunch, onOpenWaitlistModal }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -60,7 +60,6 @@ export default function Navbar({ isPreLaunch, onOpenWaitlistModal }) {
               onMouseEnter={e => e.currentTarget.style.color = 'var(--brand-primary)'}
               onMouseLeave={e => e.currentTarget.style.color = accent ? 'var(--brand-violet)' : 'var(--text-sub)'}
             >
-              {accent && <Sparkles className="w-3.5 h-3.5" style={{ color: 'var(--brand-teal)' }} />}
               {label}
             </a>
           ))}
@@ -71,10 +70,10 @@ export default function Navbar({ isPreLaunch, onOpenWaitlistModal }) {
           {isPreLaunch ? (
             <button
               onClick={onOpenWaitlistModal}
-              className="btn-primary text-sm px-5 py-2.5"
+              className="btn-primary text-sm px-5 py-2.5 flex items-center gap-2"
             >
               <span>Claim your @tag</span>
-              <Sparkles className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
           ) : (
             <div className="flex items-center gap-2">

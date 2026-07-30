@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Sparkles, Check, ArrowRight, ShieldCheck, Clock, Send, CreditCard } from 'lucide-react';
+import { Bot, Check, ArrowRight, ShieldCheck, Clock, Send, CreditCard } from 'lucide-react';
 
 export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }) {
   const [handleInput, setHandleInput] = useState('');
@@ -32,10 +32,9 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
 
-      {/* Glow Orbs — Besidebanq lavender + violet palette */}
+      {/* Ambient background glow */}
       <div className="glow-orb glow-orb-lavender top-0 left-0 w-[600px] h-[600px] opacity-70" />
       <div className="glow-orb glow-orb-violet bottom-0 right-0 w-[500px] h-[500px] opacity-50" />
-      <div className="glow-orb glow-orb-teal top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] opacity-20" />
 
       <div className="container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -50,7 +49,7 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
               <span>Next-Gen Diaspora Financial Super-App</span>
               <span style={{ color: 'var(--brand-lavender)' }}>|</span>
               <span className="flex items-center gap-1" style={{ color: 'var(--brand-violet)' }}>
-                <Sparkles className="w-3.5 h-3.5" style={{ color: 'var(--brand-teal)' }} />
+                <Bot className="w-3.5 h-3.5" style={{ color: 'var(--brand-primary)' }} />
                 Euda AI Powered
               </span>
             </div>
@@ -265,7 +264,7 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
                         <div className="flex justify-between items-start text-[11px] mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>
                           <span>Total Balance (USD)</span>
                           <span className="px-2 py-0.5 rounded-full font-bold text-[10px]"
-                            style={{ background: 'rgba(10,236,209,0.2)', color: '#0AECD1' }}>+5.2% APY</span>
+                            style={{ background: 'rgba(10,236,209,0.2)', color: '#0AECD1' }}>Inflation-Protected</span>
                         </div>
                         <div className="text-2xl font-extrabold tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>$10,000.00</div>
                         <div className="flex justify-between items-center mt-2 pt-2 text-[10px]"
@@ -292,7 +291,7 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
                         {[
                           { icon: '+', label: 'Add' },
                           { icon: <Send className="w-3.5 h-3.5" />, label: 'Send' },
-                          { icon: <Sparkles className="w-3.5 h-3.5" />, label: 'Euda' },
+                          { icon: <Bot className="w-3.5 h-3.5" />, label: 'Euda' },
                           { icon: <CreditCard className="w-3.5 h-3.5" />, label: 'Cards' },
                         ].map(({ icon, label }) => (
                           <div key={label} className="bg-white rounded-xl py-2.5 flex flex-col items-center gap-1"

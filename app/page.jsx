@@ -44,7 +44,7 @@ export default function Home() {
         />
 
         {/* Real People, Real Stories — Video + Diverse Story Cards */}
-        <PeopleSection />
+        <PeopleSection onOpenWaitlistModal={() => setIsWaitlistOpen(true)} />
 
         {/* Audience Partitioning — Individuals vs Importers & Businesses */}
         <AudienceTabs />

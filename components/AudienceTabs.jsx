@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { User, Briefcase, Zap, Shield, TrendingUp, Globe, Gift, Vote, ArrowRight, Check, X, Building, RefreshCw } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 export default function AudienceTabs() {
   const [activeTab, setActiveTab] = useState('individuals'); // 'individuals' | 'businesses'
@@ -21,43 +22,45 @@ export default function AudienceTabs() {
       <div className="container">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <div className="badge-pill mx-auto">
-            <span>Tailored Financial Super-App</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Built for individuals and global business trade.
-          </h2>
-          <p className="text-lg text-slate-600 font-normal">
-            Whether you're sending money home to loved ones or settling international supplier invoices, BesideBanq gives you complete financial control.
-          </p>
+        <ScrollReveal direction="up" delay={0}>
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+            <div className="badge-pill mx-auto">
+              <span>Tailored Financial Super-App</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+              Built for individuals and global business trade.
+            </h2>
+            <p className="text-lg text-slate-600 font-normal">
+              Whether you're sending money home to loved ones or settling international supplier invoices, BesideBanq gives you complete financial control.
+            </p>
 
-          {/* Tab Buttons */}
-          <div className="inline-flex p-1.5 bg-slate-200/80 rounded-2xl border border-slate-300 font-semibold text-sm mt-4">
-            <button
-              onClick={() => setActiveTab('individuals')}
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all ${
-                activeTab === 'individuals'
-                  ? 'bg-white text-[#1D1E81] shadow-md font-bold'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <User className="w-4 h-4 text-[#4F46E5]" />
-              <span>For Individuals</span>
-            </button>
-            <button
-              onClick={() => setActiveTab('businesses')}
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all ${
-                activeTab === 'businesses'
-                  ? 'bg-white text-[#1D1E81] shadow-md font-bold'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <Briefcase className="w-4 h-4 text-[#7C3AED]" />
-              <span>For Importers & Businesses</span>
-            </button>
+            {/* Tab Buttons */}
+            <div className="inline-flex p-1.5 bg-slate-200/80 rounded-2xl border border-slate-300 font-semibold text-sm mt-4">
+              <button
+                onClick={() => setActiveTab('individuals')}
+                className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all ${
+                  activeTab === 'individuals'
+                    ? 'bg-white text-[#1D1E81] shadow-md font-bold'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                <User className="w-4 h-4 text-[#4F46E5]" />
+                <span>For Individuals</span>
+              </button>
+              <button
+                onClick={() => setActiveTab('businesses')}
+                className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all ${
+                  activeTab === 'businesses'
+                    ? 'bg-white text-[#1D1E81] shadow-md font-bold'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                <Briefcase className="w-4 h-4 text-[#7C3AED]" />
+                <span>For Importers & Businesses</span>
+              </button>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* TAB 1: FOR INDIVIDUALS */}
         {activeTab === 'individuals' && (
@@ -91,8 +94,8 @@ export default function AudienceTabs() {
                 </p>
               </div>
               <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-100 text-xs font-bold text-emerald-800 flex justify-between">
-                <span>Earn up to</span>
-                <span className="text-emerald-700 font-extrabold">+5.2% APY</span>
+                <span>Wealth Protection</span>
+                <span className="text-emerald-700 font-extrabold">USD Stable Savings</span>
               </div>
             </div>
 
@@ -258,7 +261,7 @@ export default function AudienceTabs() {
                   <div className={`p-3 rounded-xl text-center text-xs font-bold ${
                     isUnanimous ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40' : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
                   }`}>
-                    {isUnanimous ? '🎉 100% Unanimous Approval — Transfer Executed to Supplier!' : '⚠️ Waiting for 100% Unanimous Approval to release funds.'}
+                    {isUnanimous ? '100% Unanimous Approval: Transfer Executed to Supplier!' : 'Waiting for 100% Unanimous Approval to release funds.'}
                   </div>
 
                 </div>

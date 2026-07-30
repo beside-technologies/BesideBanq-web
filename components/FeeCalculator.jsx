@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Calculator, ArrowRight, Zap, ShieldCheck, Clock, Check, RefreshCw } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 export default function FeeCalculator() {
   const [sendAmount, setSendAmount] = useState(500);
@@ -58,21 +59,24 @@ export default function FeeCalculator() {
       <div className="container">
         
         {/* Title */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <div className="badge-pill mx-auto">
-            <Calculator className="w-3.5 h-3.5 text-indigo-600" />
-            <span>Transparent Multi-Asset Rates</span>
+        <ScrollReveal direction="up" delay={0}>
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+            <div className="badge-pill mx-auto">
+              <Calculator className="w-3.5 h-3.5 text-indigo-600" />
+              <span>Transparent Multi-Asset Rates</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+              Zero hidden fees. Near-instant settlement.
+            </h2>
+            <p className="text-lg text-slate-600">
+              See exactly how much your recipient gets before you send. No transfer markup, no bank delays.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Zero hidden fees. Near-instant settlement.
-          </h2>
-          <p className="text-lg text-slate-600">
-            See exactly how much your recipient gets before you send. No transfer markup, no bank delays.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Calculator Widget */}
-        <div className="max-w-4xl mx-auto glass-card p-6 md:p-10 rounded-3xl border border-indigo-100 shadow-2xl space-y-8">
+        <ScrollReveal direction="scale" delay={150}>
+          <div className="max-w-4xl mx-auto glass-card p-6 md:p-10 rounded-3xl border border-indigo-100 shadow-2xl space-y-8">
           
           {/* Corridor Selection Pills */}
           <div className="flex flex-wrap justify-center gap-2 text-xs font-bold">
@@ -181,6 +185,7 @@ export default function FeeCalculator() {
           </div>
 
         </div>
+        </ScrollReveal>
 
       </div>
     </section>

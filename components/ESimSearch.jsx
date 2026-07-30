@@ -19,7 +19,7 @@ export default function ESimSearch() {
   const filtered = countries.filter(c => c.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
   return (
-    <section className="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <section id="esim" className="py-20 bg-slate-900 text-white relative overflow-hidden">
       
       {/* Glow orb */}
       <div className="glow-orb top-10 right-1/4 w-[350px] h-[350px] bg-purple-500/20" />
@@ -32,7 +32,7 @@ export default function ESimSearch() {
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-bold border border-sky-500/30">
               <Wifi className="w-3.5 h-3.5" />
-              <span>Lifestyle Tab — Global eSIM Data</span>
+              <span>Lifestyle Tab: Global eSIM Data</span>
             </div>
 
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
@@ -40,7 +40,7 @@ export default function ESimSearch() {
             </h2>
 
             <p className="text-slate-400 text-base leading-relaxed">
-              Buy low-cost mobile data roaming packages directly inside BesideBanq. No swapping physical SIMs — activate your eSIM in 2 clicks.
+              Buy low-cost mobile data roaming packages directly inside BesideBanq. No swapping physical SIMs, activate your eSIM in 2 clicks.
             </p>
 
             {/* Interactive Search Bar */}

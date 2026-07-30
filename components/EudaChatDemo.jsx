@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Sparkles, MessageSquare, Send, Heart, Shield, ArrowRight } from 'lucide-react';
+import { Bot, MessageSquare, Send, Heart, Shield, ArrowRight } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 export default function EudaChatDemo() {
   const [selectedPromptIndex, setSelectedPromptIndex] = useState(0);
@@ -13,7 +14,7 @@ export default function EudaChatDemo() {
     },
     {
       user: "Auto-save $50 for my trip to Ghana.",
-      euda: "On it! I've scheduled a $50 weekly deposit into your Ghana Travel vault. You're currently 35% closer to your flight goal! ✈️🇬🇭"
+      euda: "On it! I've scheduled a $50 weekly deposit into your Ghana Travel vault. You're currently 35% closer to your flight goal!"
     },
     {
       user: "How fast can I send money to Nigeria today?",
@@ -28,10 +29,11 @@ export default function EudaChatDemo() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Description */}
-          <div className="lg:col-span-5 space-y-6">
+          <ScrollReveal className="lg:col-span-5" direction="right" delay={0}>
+            <div className="space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 text-purple-700 text-xs font-bold border border-purple-100">
-              <Sparkles className="w-4 h-4 text-purple-600" />
-              <span>Meet Euda — AI Financial Agent</span>
+              <Bot className="w-4 h-4 text-purple-600" />
+              <span>Meet Euda: Your AI Financial Companion</span>
             </div>
 
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
@@ -57,9 +59,10 @@ export default function EudaChatDemo() {
               </div>
             </div>
           </div>
+        </ScrollReveal>
 
           {/* Right Interactive Chat Box Simulator */}
-          <div className="lg:col-span-7">
+          <ScrollReveal className="lg:col-span-7" direction="left" delay={150}>
             <div className="glass-card-dark p-6 sm:p-8 rounded-3xl border border-purple-500/20 shadow-2xl space-y-6">
               
               {/* Header */}
@@ -123,7 +126,7 @@ export default function EudaChatDemo() {
               </div>
 
             </div>
-          </div>
+          </ScrollReveal>
 
         </div>
 

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Scan, FileText, CheckCircle2, ArrowRight, MessageSquare, Edit3, ShieldAlert } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 export default function ScanTransferDemo() {
   const [selectedSample, setSelectedSample] = useState(0);
@@ -35,7 +36,7 @@ export default function ScanTransferDemo() {
       title: "Supplier Invoice (China)",
       icon: FileText,
       fileType: "PDF Invoice",
-      rawText: `INVOICE #4901 — GuangZhou Electronics Co. Ltd. Total: ¥12,500 CNY. Alipay: supplier_gz@alipay.cn`,
+      rawText: `INVOICE #4901: GuangZhou Electronics Co. Ltd. Total: ¥12,500 CNY. Alipay: supplier_gz@alipay.cn`,
       parsed: {
         payee: "GuangZhou Electronics Co.",
         bank: "Alipay Direct Rail (China)",
@@ -52,18 +53,20 @@ export default function ScanTransferDemo() {
       <div className="container">
         
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <div className="badge-pill mx-auto">
-            <Scan className="w-3.5 h-3.5 text-indigo-600" />
-            <span>Scan to Transfer — Euda OCR Engine</span>
+        <ScrollReveal direction="up" delay={0}>
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+            <div className="badge-pill mx-auto">
+              <Scan className="w-3.5 h-3.5 text-indigo-600" />
+              <span>Scan to Transfer: Euda OCR Engine</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+              Drop any chat screenshot, note, or invoice.
+            </h2>
+            <p className="text-lg text-slate-600">
+              Euda automatically parses bank numbers, handles, payees, and amounts from images or text, populating your transfer form instantly with 99.9% accuracy.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Drop any chat screenshot, note, or invoice.
-          </h2>
-          <p className="text-lg text-slate-600">
-            Euda automatically parses bank numbers, handles, payees, and amounts from images or text — populating your transfer form instantly with 99.9% accuracy.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Interactive Playground */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-5xl mx-auto">

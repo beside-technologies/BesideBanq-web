@@ -93,7 +93,7 @@ export default function Footer() {
                 ['Buddy Escrow', '#audience'],
                 ['USD Savings', '#calculator'],
                 ['China CNY Rails', '#calculator'],
-                ['eSIM & Gift Cards', '#features'],
+                ['eSIM & Gift Cards', '#esim'],
               ].map(([label, href]) => (
                 <li key={label}>
                   <a href={href} className="transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.5)' }}>

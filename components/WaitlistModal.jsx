@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X, CheckCircle2, Copy, Sparkles, ShieldCheck, Share2, Award, Gift, ArrowRight } from 'lucide-react';
+import { X, CheckCircle2, Copy, ShieldCheck, Share2, Award, Gift, ArrowRight } from 'lucide-react';
 
 export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
   const [step, setStep] = useState(1); // 1: Email Input, 2: OTP Entry, 3: Dashboard Rank
@@ -161,7 +161,7 @@ export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
                 Handle Locked & Verified!
               </div>
               <h3 className="text-3xl font-black text-slate-900 tracking-tight">
-                @{reservedTag || 'handle'} is yours 🎉
+                @{reservedTag || 'handle'} is verified!
               </h3>
               <p className="text-sm text-slate-600">
                 You are guaranteed this handle for <strong>14 days</strong> post-launch!
