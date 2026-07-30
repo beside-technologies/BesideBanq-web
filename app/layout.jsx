@@ -30,6 +30,11 @@ export const metadata = {
       follow: true,
     },
   },
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/apple-icon.png',
+  },
 };
 
 const jsonLd = {
