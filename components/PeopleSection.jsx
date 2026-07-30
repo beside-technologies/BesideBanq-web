@@ -54,7 +54,7 @@ const STORIES = [
   {
     img: '/media/business_handshake.png',
     name: 'Arjun & Emmanuel',
-    flag: '🇮🇳🤝🌍',
+    flag: 'IN - Global',
     quote: '"We do business across three continents. BesideBanq is the only app that makes cross-border business feel local."',
     tag: 'Global Trade',
   },

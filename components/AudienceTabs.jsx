@@ -69,24 +69,24 @@ export default function AudienceTabs() {
             {/* Feature 1: BanqDrop */}
             <div className="glass-card p-6 space-y-4 hover:shadow-xl transition-all duration-300 border border-indigo-100 flex flex-col justify-between">
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xl">
-                  ⚡
+                <div className="w-12 h-12 rounded-2xl bg-indigo-100/80 text-indigo-700 flex items-center justify-center font-bold">
+                  <Zap className="w-6 h-6 text-indigo-600" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">BanqDrop Instant Send</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Send money instantly to any <strong>@tag</strong>. Free forever. No bank account numbers or SWIFT codes required.
+                  Send money instantly to any @tag. Free forever. No bank account numbers or SWIFT codes required.
                 </p>
               </div>
               <div className="p-3 bg-indigo-50/80 rounded-xl border border-indigo-100 text-xs text-slate-700 font-medium">
-                <span className="font-bold text-indigo-700">@amara</span> sent you <strong>100 USDC</strong> via BanqDrop
+                <span className="font-bold text-indigo-700">@amara</span> sent you 100 USDC via BanqDrop
               </div>
             </div>
 
             {/* Feature 2: USD Savings */}
             <div className="glass-card p-6 space-y-4 hover:shadow-xl transition-all duration-300 border border-indigo-100 flex flex-col justify-between">
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xl">
-                  📈
+                <div className="w-12 h-12 rounded-2xl bg-emerald-100/80 text-emerald-700 flex items-center justify-center font-bold">
+                  <TrendingUp className="w-6 h-6 text-emerald-600" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">USD Savings</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
@@ -102,8 +102,8 @@ export default function AudienceTabs() {
             {/* Feature 3: eSIM Mobile Data */}
             <div className="glass-card p-6 space-y-4 hover:shadow-xl transition-all duration-300 border border-indigo-100 flex flex-col justify-between">
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-xl">
-                  🌐
+                <div className="w-12 h-12 rounded-2xl bg-sky-100/80 text-sky-700 flex items-center justify-center font-bold">
+                  <Globe className="w-6 h-6 text-sky-600" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">eSIM Mobile Data</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
@@ -118,8 +118,8 @@ export default function AudienceTabs() {
             {/* Feature 4: Global Gift Cards */}
             <div className="glass-card p-6 space-y-4 hover:shadow-xl transition-all duration-300 border border-indigo-100 flex flex-col justify-between">
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xl">
-                  🎁
+                <div className="w-12 h-12 rounded-2xl bg-purple-100/80 text-purple-700 flex items-center justify-center font-bold">
+                  <Gift className="w-6 h-6 text-purple-600" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">Digital Gift Cards</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
@@ -169,7 +169,7 @@ export default function AudienceTabs() {
                   </div>
 
                   <div className="grid grid-cols-3 font-extrabold items-center text-indigo-900 bg-indigo-50/70 p-2 rounded-xl">
-                    <span className="flex items-center gap-1 text-[#1D1E81]">⚡ BesideBanq</span>
+                    <span className="flex items-center gap-1.5 text-[#1D1E81]"><Zap className="w-4 h-4 text-indigo-600 inline" /> BesideBanq</span>
                     <span className="text-emerald-600 font-bold">Seconds</span>
                     <span className="text-emerald-600 font-bold">Near Zero ($0)</span>
                   </div>
@@ -196,7 +196,7 @@ export default function AudienceTabs() {
                   </div>
 
                   <div className="text-xs text-slate-300">
-                    Amount: <strong className="text-white text-sm font-bold">$15,000.00 USDC</strong> ➔ Guangzhou Supplier (CNY)
+                    Amount: <strong className="text-white text-sm font-bold">$15,000.00 USDC</strong> → Guangzhou Supplier (CNY)
                   </div>
 
                   {/* Member Vote List */}

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Bot, MessageSquare, Send, Heart, Shield, ArrowRight } from 'lucide-react';
+import { Bot, MessageSquare, Send, Heart, Shield, ArrowRight, Check } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 export default function EudaChatDemo() {
@@ -10,7 +10,7 @@ export default function EudaChatDemo() {
   const prompts = [
     {
       user: "I spent way too much money this weekend.",
-      euda: "Hey, don't sweat it! Spending on dinners and friends is an investment in your social health and self-care. Let's look at your target for the week and see if we can make a tiny $5 adjustment to keep you on track. You got this! 💙"
+      euda: "Hey, don't sweat it! Spending on dinners and friends is an investment in your social health and self-care. Let's look at your target for the week and see if we can make a tiny $5 adjustment to keep you on track. You got this!"
     },
     {
       user: "Auto-save $50 for my trip to Ghana.",
@@ -46,15 +46,21 @@ export default function EudaChatDemo() {
 
             <div className="space-y-3 pt-2">
               <div className="flex items-center gap-3 text-sm font-semibold text-slate-800">
-                <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold">✓</div>
+                <div className="w-7 h-7 rounded-full bg-purple-100/80 text-purple-700 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-purple-700" />
+                </div>
                 <span>Empowering Financial Advice &amp; Coaching</span>
               </div>
               <div className="flex items-center gap-3 text-sm font-semibold text-slate-800">
-                <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold">✓</div>
+                <div className="w-7 h-7 rounded-full bg-purple-100/80 text-purple-700 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-purple-700" />
+                </div>
                 <span>Autonomous Budget Adjustments &amp; Smart Savings Vaults</span>
               </div>
               <div className="flex items-center gap-3 text-sm font-semibold text-slate-800">
-                <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold">✓</div>
+                <div className="w-7 h-7 rounded-full bg-purple-100/80 text-purple-700 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-purple-700" />
+                </div>
                 <span>Instant Natural Language Money Transfers</span>
               </div>
             </div>

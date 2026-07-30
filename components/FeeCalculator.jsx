@@ -86,7 +86,7 @@ export default function FeeCalculator() {
                 corridor === 'cad-ngn' ? 'bg-[#1D1E81] text-white border-[#1D1E81] shadow-md' : 'bg-slate-50 text-slate-700 border-slate-200'
               }`}
             >
-              🇨🇦 CAD ➔ 🇳🇬 NGN
+              CAD → NGN
             </button>
             <button
               onClick={() => setCorridor('gbp-cny')}
@@ -94,7 +94,7 @@ export default function FeeCalculator() {
                 corridor === 'gbp-cny' ? 'bg-[#1D1E81] text-white border-[#1D1E81] shadow-md' : 'bg-slate-50 text-slate-700 border-slate-200'
               }`}
             >
-              🇬🇧 GBP ➔ 🇨🇳 CNY (Alipay)
+              GBP → CNY (Alipay)
             </button>
             <button
               onClick={() => setCorridor('usd-ghs')}
@@ -102,7 +102,7 @@ export default function FeeCalculator() {
                 corridor === 'usd-ghs' ? 'bg-[#1D1E81] text-white border-[#1D1E81] shadow-md' : 'bg-slate-50 text-slate-700 border-slate-200'
               }`}
             >
-              🇺🇸 USD ➔ 🇬🇭 GHS
+              USD → GHS
             </button>
             <button
               onClick={() => setCorridor('eur-kes')}
@@ -110,7 +110,7 @@ export default function FeeCalculator() {
                 corridor === 'eur-kes' ? 'bg-[#1D1E81] text-white border-[#1D1E81] shadow-md' : 'bg-slate-50 text-slate-700 border-slate-200'
               }`}
             >
-              🇪🇺 EUR ➔ 🇰🇪 KES (M-PESA)
+              EUR → KES (M-PESA)
             </button>
           </div>
 
@@ -138,8 +138,8 @@ export default function FeeCalculator() {
 
             {/* Middle Divider / Conversion Symbol */}
             <div className="md:col-span-2 flex justify-center">
-              <div className="w-12 h-12 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-lg shadow-sm">
-                ➔
+              <div className="w-12 h-12 rounded-full bg-indigo-100/80 text-indigo-700 flex items-center justify-center font-bold shadow-sm">
+                <ArrowRight className="w-5 h-5 text-indigo-700" />
               </div>
             </div>
 

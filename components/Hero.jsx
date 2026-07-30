@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Bot, Check, ArrowRight, ShieldCheck, Clock, Send, CreditCard } from 'lucide-react';
+import { Bot, Check, ArrowRight, ShieldCheck, Clock, Send, CreditCard, BatteryCharging, Wifi, Zap, Smartphone } from 'lucide-react';
 
 export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }) {
   const [handleInput, setHandleInput] = useState('');
@@ -193,14 +193,14 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
               /* Post-Launch App Store Badges */
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 {[
-                  { label: 'Download on the', store: 'App Store', icon: '🍎' },
-                  { label: 'GET IT ON', store: 'Google Play', icon: '▶' },
-                ].map(({ label, store, icon }) => (
+                  { label: 'Download on the', store: 'App Store', isApple: true },
+                  { label: 'GET IT ON', store: 'Google Play', isApple: false },
+                ].map(({ label, store, isApple }) => (
                   <button key={store}
                     onClick={() => alert(`Redirecting to ${store}...`)}
                     className="flex items-center gap-3 px-6 py-3 rounded-2xl shadow-lg transition-all hover:-translate-y-0.5"
                     style={{ background: 'var(--text-main)', color: '#fff' }}>
-                    <span className="text-2xl">{icon}</span>
+                    <Smartphone className="w-6 h-6 text-white" />
                     <div className="text-left leading-none">
                       <div className="text-[10px] uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.6)' }}>{label}</div>
                       <div className="text-base font-bold">{store}</div>
@@ -235,7 +235,8 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
                     <div className="flex items-center justify-between px-5 pt-4 pb-2 text-[11px] font-bold" style={{ color: 'var(--text-main)' }}>
                       <span>9:41</span>
                       <div className="flex items-center gap-1.5 text-[10px]">
-                        <span>●●●●</span><span>WiFi</span><span>🔋</span>
+                        <Wifi className="w-3 h-3 text-slate-700" />
+                        <BatteryCharging className="w-3 h-3 text-slate-700" />
                       </div>
                     </div>
 
@@ -278,10 +279,12 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
                       <div className="bg-white p-2.5 rounded-xl flex items-center gap-2 shadow-sm"
                         style={{ border: '1px solid rgba(44,43,154,0.08)' }}>
                         <div className="w-7 h-7 rounded-full flex items-center justify-center text-sm"
-                          style={{ background: 'rgba(10,236,209,0.15)', color: '#007A68' }}>⚡</div>
+                          style={{ background: 'rgba(10,236,209,0.15)', color: '#007A68' }}>
+                          <Zap className="w-4 h-4 text-teal-600" />
+                        </div>
                         <div className="flex-1">
-                          <div className="text-[11px] font-bold" style={{ color: 'var(--text-main)' }}>BanqDrop Received!</div>
-                          <div className="text-[10px]" style={{ color: 'var(--text-muted)' }}>@amara sent you <b>100 USDC</b></div>
+                          <div className="text-[11px] font-bold" style={{ color: 'var(--text-main)' }}>BanqDrop Received</div>
+                          <div className="text-[10px]" style={{ color: 'var(--text-muted)' }}>@amara sent you 100 USDC</div>
                         </div>
                         <span className="text-[9px]" style={{ color: 'var(--text-light)' }}>Just now</span>
                       </div>

@@ -104,19 +104,21 @@ export default function ESimSearch() {
               >
                 {!isGiftOpen ? (
                   <div className="space-y-3 py-4">
-                    <div className="w-16 h-16 rounded-full bg-purple-600 text-white flex items-center justify-center text-3xl mx-auto shadow-lg animate-bounce">
-                      ✉️
+                    <div className="w-14 h-14 rounded-2xl bg-purple-600 text-white flex items-center justify-center mx-auto shadow-lg animate-pulse">
+                      <Gift className="w-7 h-7 text-white" />
                     </div>
-                    <div className="text-sm font-bold text-white">Tap to Rip Open Digital Gift Envelope</div>
+                    <div className="text-sm font-bold text-white">Tap to Open Digital Gift Envelope</div>
                     <div className="text-xs text-purple-300">From @jaiye for @amara</div>
                   </div>
                 ) : (
                   <div className="space-y-4 animate-fadeIn">
-                    <div className="text-3xl">🎉</div>
-                    <div className="text-xs uppercase tracking-wider font-extrabold text-purple-300">Digital Gift Unboxed!</div>
+                    <div className="w-12 h-12 rounded-full bg-purple-500/30 text-purple-300 flex items-center justify-center mx-auto">
+                      <Gift className="w-6 h-6 text-purple-300" />
+                    </div>
+                    <div className="text-xs uppercase tracking-wider font-extrabold text-purple-300">Digital Gift Unboxed</div>
                     <div className="text-2xl font-extrabold text-white">$50 Apple Store Gift Card</div>
                     <p className="text-xs text-slate-300 italic">
-                      "Happy Birthday Amara! Treat yourself to something awesome 💙 — Jaiye"
+                      "Happy Birthday Amara! Treat yourself to something awesome. From Jaiye"
                     </p>
                     <div className="inline-flex items-center gap-1 text-[11px] text-emerald-400 font-bold bg-emerald-500/20 px-3 py-1 rounded-full">
                       <Check className="w-3.5 h-3.5" /> Claimed instantly to wallet
