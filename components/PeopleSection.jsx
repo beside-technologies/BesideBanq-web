@@ -63,32 +63,18 @@ const STORIES = [
 export default function PeopleSection({ onOpenWaitlistModal }) {
   // ── Video slideshow state ───────────────────────────────────────────────
   const [videoIdx, setVideoIdx] = useState(0);
-  const [videoFading, setVideoFading] = useState(false);
-  const videoRef = useRef(null);
   const timerRef = useRef(null);
 
   const advanceVideo = useCallback(() => {
-    setVideoFading(true);
-    setTimeout(() => {
-      setVideoIdx(i => (i + 1) % VIDEOS.length);
-      setVideoFading(false);
-    }, 400);
+    setVideoIdx(i => (i + 1) % VIDEOS.length);
   }, []);
 
-  // Start 4-second timer whenever video changes
+  // Advance video every 4 seconds cleanly without any pause/unmount
   useEffect(() => {
     clearTimeout(timerRef.current);
     timerRef.current = setTimeout(advanceVideo, VIDEO_DURATION);
     return () => clearTimeout(timerRef.current);
   }, [videoIdx, advanceVideo]);
-
-  // Reset video to start when src changes
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
-    }
-  }, [videoIdx]);
 
   // ── Story carousel state ────────────────────────────────────────────────
   const [activeStory, setActiveStory] = useState(null);
@@ -117,31 +103,36 @@ export default function PeopleSection({ onOpenWaitlistModal }) {
           </div>
         </ScrollReveal>
 
-        {/* ── Video Slideshow ────────────────────────────────────────── */}
+        {/* ── Video Slideshow — Seamless Crossfade Player ────────────────────────── */}
         <ScrollReveal direction="scale" delay={150}>
           <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl"
             style={{ aspectRatio: '16/7', minHeight: '280px', maxHeight: '480px', background: '#0D0D24' }}>
 
-            {/* Video */}
-            <video
-              ref={videoRef}
-              key={VIDEOS[videoIdx].src}
-              src={VIDEOS[videoIdx].src}
-              autoPlay
-              muted
-              playsInline
-              loop={false}
-              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-400"
-              style={{ opacity: videoFading ? 0 : 1 }}
-            />
+            {/* Stacked Seamless Videos (Zero pause, continuous playback) */}
+            {VIDEOS.map((vid, i) => (
+              <video
+                key={vid.src}
+                src={vid.src}
+                autoPlay
+                muted
+                playsInline
+                loop
+                preload="auto"
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out pointer-events-none"
+                style={{
+                  opacity: i === videoIdx ? 1 : 0,
+                  zIndex: i === videoIdx ? 2 : 1,
+                }}
+              />
+            ))}
 
             {/* Dark gradient overlay */}
-            <div className="absolute inset-0" style={{
+            <div className="absolute inset-0 z-10" style={{
               background: 'linear-gradient(to top, rgba(13,13,36,0.8) 0%, rgba(13,13,36,0.2) 50%, rgba(13,13,36,0.05) 100%)'
             }} />
 
             {/* Bottom bar */}
-            <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
+            <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between z-20">
               <p className="text-white text-sm font-bold" style={{ fontFamily: 'var(--font-heading)', textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}>
                 {VIDEOS[videoIdx].label}
               </p>
@@ -151,7 +142,7 @@ export default function PeopleSection({ onOpenWaitlistModal }) {
                 {VIDEOS.map((_, i) => (
                   <button
                     key={i}
-                    onClick={() => { clearTimeout(timerRef.current); setVideoFading(true); setTimeout(() => { setVideoIdx(i); setVideoFading(false); }, 300); }}
+                    onClick={() => setVideoIdx(i)}
                     className="transition-all duration-300 rounded-full"
                     style={{
                       width: i === videoIdx ? '24px' : '8px',
