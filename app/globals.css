@@ -1,54 +1,52 @@
 /* ─── FONTS ──────────────────────────────────────────────────────────────── */
-/* Bagel Fat One — exact display font used on Optraction hero heading
-   Nunito — rounded bold sans for secondary section headings
-   Host Grotesk — clean geometric for body/UI text */
+/* Outfit — modern grotesque font for confident fintech display headings
+   Plus Jakarta Sans — clean geometric sans for UI and body copy
+   Inter — fallback interface typography */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ─── BESIDEBANQ BRAND DESIGN TOKENS ────────────────────────────────────────
-   Colors extracted from designs/UIUX/ screens and Splash screen:
-   • Splash bg: Lavender #C4C8F0 → Violet #7B5CF5 → Deep Navy-Purple #1A1B6B
-   • Primary CTA / Banner: Deep Indigo #2C2B9A (Sign Up btn, UMA Address banner)
-   • App frame accent: Teal #0AECD1 (the cyan border around the phone frames)
-   • Light screen bg: Soft lavender-white #EEEEFF / #F0F1FF
-   • Body text dark: Near-black #0D0D24
-   • Font: Plus Jakarta Sans (matches the bold condensed heading style in designs)
+/* ─── BESIDEBANQ BRAND DESIGN SYSTEM ────────────────────────────────────────
+   Core Design System Tokens:
+   • Primary Brand Indigo: Deep royal indigo (#2C2B9A) for CTAs & active states
+   • Secondary Brand Accent: Electric Teal (#0AECD1) for highlights & badges
+   • Dark Surfaces: Slate Navy (#0F172A) for high-contrast secondary sections
+   • Light Surfaces: Clean Slate (#F8FAFC) & Pure White (#FFFFFF)
    ─────────────────────────────────────────────────────────────────────────── */
 :root {
-  /* Typography — Outfit headings (bold grotesque like Optraction) + Plus Jakarta Sans body */
+  /* Typography — Outfit display headings + Plus Jakarta Sans body */
   --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
 
   /* Core brand palette */
-  --brand-primary:    #2C2B9A;   /* Deep royal indigo — CTA buttons */
-  --brand-mid:        #4F46E5;   /* Indigo 600 — hover/gradients */
-  --brand-violet:     #6366F1;   /* Vibrant indigo — accents */
-  --brand-lavender:   #E0E7FF;   /* Soft indigo tint */
-  --brand-teal:       #0AECD1;   /* Electric teal — accents */
-  --brand-navy:       #1D1E81;   /* Deep navy */
+  --brand-primary:    #2C2B9A;   /* Deep royal indigo — CTAs & primary actions */
+  --brand-mid:        #4F46E5;   /* Indigo 600 — interactive hovers & gradients */
+  --brand-violet:     #6366F1;   /* Vibrant indigo — key highlights */
+  --brand-lavender:   #E0E7FF;   /* Soft indigo background tint */
+  --brand-teal:       #0AECD1;   /* Electric teal — precision accents */
+  --brand-navy:       #1D1E81;   /* Deep navy footer & dark hero elements */
 
-  /* Background surfaces — Clean, crisp Optraction / Kredete palette */
-  --bg-primary:     #F8FAFC;    /* Slate-50 — crisp modern screen bg */
-  --bg-pure:        #FFFFFF;    /* Pure white */
-  --bg-card:        #FFFFFF;    /* White cards */
-  --bg-dark:        #0F172A;    /* Slate-900 — rich dark section bg */
-  --bg-dark-card:   #1E293B;    /* Slate-800 — dark card surfaces */
+  /* Background surfaces — Clean, high-contrast fintech palette */
+  --bg-primary:     #F8FAFC;    /* Slate-50 — crisp primary screen background */
+  --bg-pure:        #FFFFFF;    /* Pure white surface */
+  --bg-card:        #FFFFFF;    /* White card background */
+  --bg-dark:        #0F172A;    /* Slate-900 — rich dark section surface */
+  --bg-dark-card:   #1E293B;    /* Slate-800 — dark card surface */
 
-  /* Text — High-contrast Slate palette */
+  /* Typography — Slate hierarchy */
   --text-main:    #0F172A;    /* Primary headings (Slate 900) */
-  --text-sub:     #475569;    /* Secondary text (Slate 600) */
-  --text-muted:   #64748B;    /* Muted text (Slate 500) */
-  --text-light:   #94A3B8;    /* Light text (Slate 400) */
+  --text-sub:     #475569;    /* Body & secondary descriptions (Slate 600) */
+  --text-muted:   #64748B;    /* Muted captions & labels (Slate 500) */
+  --text-light:   #94A3B8;    /* Sub-text helper tokens (Slate 400) */
   --text-white:   #FFFFFF;
 
-  /* Borders */
+  /* Borders & Dividers */
   --border-color:      #E2E8F0;    /* Slate 200 */
   --border-soft:       rgba(15, 23, 42, 0.08);
 
-  /* Gradients — matching Optraction and Kredete high-end feel */
+  /* BesideBanq Gradients */
   --gradient-brand:    linear-gradient(160deg, #E0E7FF 0%, #6366F1 45%, #2C2B9A 75%, #1D1E81 100%);
   --gradient-primary:  linear-gradient(135deg, #1D1E81 0%, #4F46E5 50%, #6366F1 100%);
   --gradient-teal:     linear-gradient(135deg, #0AECD1 0%, #4F46E5 100%);

@@ -52,17 +52,17 @@ export default function ScanTransferDemo() {
     <section className="py-20 bg-slate-50 relative border-t border-b border-slate-200/80">
       <div className="container">
         
-        {/* Section Title */}
+        {/* Section Title — Left-aligned Section Header */}
         <ScrollReveal direction="up" delay={0}>
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-            <div className="badge-pill mx-auto">
-              <Scan className="w-3.5 h-3.5 text-indigo-600" />
-              <span>Scan to Transfer: Euda OCR Engine</span>
+          <div className="max-w-3xl mb-12 space-y-3">
+            <div className="flex items-center gap-2 text-indigo-600 font-bold text-xs uppercase tracking-widest">
+              <Scan className="w-4 h-4 text-indigo-600" />
+              <span>Euda Smart OCR Engine</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
               Drop any chat screenshot, note, or invoice.
             </h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-base md:text-lg text-slate-600 leading-relaxed font-normal">
               Euda automatically parses bank numbers, handles, payees, and amounts from images or text, populating your transfer form instantly with 99.9% accuracy.
             </p>
           </div>

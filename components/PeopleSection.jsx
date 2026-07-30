@@ -97,27 +97,23 @@ export default function PeopleSection({ onOpenWaitlistModal }) {
     <section id="features" className="py-24 overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
       <div className="container space-y-20">
 
-        {/* ── Section header ─────────────────────────────────────────── */}
+        {/* ── Section header — Left-aligned Editorial Split Layout ─────────────────────────── */}
         <ScrollReveal direction="up" delay={0}>
-          <div className="text-center max-w-2xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold"
-              style={{ background: 'rgba(44,43,154,0.08)', color: 'var(--brand-primary)', border: '1px solid rgba(44,43,154,0.15)' }}>
-              Real People, Real Stories
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end pb-4 border-b border-slate-200/80">
+            <div className="md:col-span-7 space-y-2">
+              <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">Global Community</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
+                Built for the world's{' '}
+                <span className="bg-gradient-to-r from-indigo-700 via-indigo-600 to-violet-600 bg-clip-text text-transparent">
+                  global movers
+                </span>
+              </h2>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-heading)' }}>
-              Built for the world's{' '}
-              <span style={{
-                background: 'var(--gradient-primary)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}>
-                global movers
-              </span>
-            </h2>
-            <p className="text-base leading-relaxed" style={{ color: 'var(--text-sub)' }}>
-              From Lagos to London, Guangzhou to Accra, Toronto to Ibadan: BesideBanq moves with the people who make the world run.
-            </p>
+            <div className="md:col-span-5 md:text-right">
+              <p className="text-sm md:text-base text-slate-600 leading-relaxed max-w-md md:ml-auto">
+                From Lagos to London, Guangzhou to Accra, Toronto to Ibadan: BesideBanq moves with the people who make the world run.
+              </p>
+            </div>
           </div>
         </ScrollReveal>
 
@@ -243,7 +239,7 @@ export default function PeopleSection({ onOpenWaitlistModal }) {
               onClick={onOpenWaitlistModal}
               className="btn-primary px-8 py-4 text-base"
             >
-              <span>Claim your @tag today</span>
+              <span>Reserve Your Unique @tag</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

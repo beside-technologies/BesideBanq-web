@@ -46,20 +46,20 @@ export default function EudaChatDemo() {
 
             <div className="space-y-3 pt-2">
               <div className="flex items-center gap-3 text-sm font-semibold text-slate-800">
-                <div className="w-7 h-7 rounded-full bg-purple-100/80 text-purple-700 flex items-center justify-center">
-                  <Check className="w-4 h-4 text-purple-700" />
+                <div className="w-7 h-7 rounded-full bg-indigo-50 border border-indigo-100 text-[#1D1E81] flex items-center justify-center">
+                  <Check className="w-4 h-4 text-[#1D1E81]" />
                 </div>
                 <span>Empowering Financial Advice &amp; Coaching</span>
               </div>
               <div className="flex items-center gap-3 text-sm font-semibold text-slate-800">
-                <div className="w-7 h-7 rounded-full bg-purple-100/80 text-purple-700 flex items-center justify-center">
-                  <Check className="w-4 h-4 text-purple-700" />
+                <div className="w-7 h-7 rounded-full bg-indigo-50 border border-indigo-100 text-[#1D1E81] flex items-center justify-center">
+                  <Check className="w-4 h-4 text-[#1D1E81]" />
                 </div>
                 <span>Autonomous Budget Adjustments &amp; Smart Savings Vaults</span>
               </div>
               <div className="flex items-center gap-3 text-sm font-semibold text-slate-800">
-                <div className="w-7 h-7 rounded-full bg-purple-100/80 text-purple-700 flex items-center justify-center">
-                  <Check className="w-4 h-4 text-purple-700" />
+                <div className="w-7 h-7 rounded-full bg-indigo-50 border border-indigo-100 text-[#1D1E81] flex items-center justify-center">
+                  <Check className="w-4 h-4 text-[#1D1E81]" />
                 </div>
                 <span>Instant Natural Language Money Transfers</span>
               </div>

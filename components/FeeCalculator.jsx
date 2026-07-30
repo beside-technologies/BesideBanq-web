@@ -58,17 +58,21 @@ export default function FeeCalculator() {
     <section id="calculator" className="py-20 md:py-28 bg-white relative">
       <div className="container">
         
-        {/* Title */}
+        {/* Title — Left-Aligned Header with Live Ticker Badge */}
         <ScrollReveal direction="up" delay={0}>
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-            <div className="badge-pill mx-auto">
-              <Calculator className="w-3.5 h-3.5 text-indigo-600" />
-              <span>Transparent Multi-Asset Rates</span>
+          <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 border-b border-slate-200/80 gap-4 mb-12">
+            <div className="space-y-2 max-w-2xl">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">Rate Calculator</span>
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold inline-flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" /> Live Mid-Market
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
+                Zero hidden fees. Near-instant settlement.
+              </h2>
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-              Zero hidden fees. Near-instant settlement.
-            </h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-base text-slate-600 max-w-md font-normal">
               See exactly how much your recipient gets before you send. No transfer markup, no bank delays.
             </p>
           </div>
