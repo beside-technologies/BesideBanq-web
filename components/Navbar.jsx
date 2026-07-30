@@ -42,7 +42,7 @@ export default function Navbar({ isPreLaunch, onOpenWaitlistModal }) {
         <a href="/" className="flex-shrink-0 group">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo.png"
+            src="/besidebanq-logo.svg"
             alt="BesideBanq"
             style={{ height: '38px', width: 'auto', display: 'block' }}
             className="transition-opacity group-hover:opacity-85"
@@ -79,7 +79,7 @@ export default function Navbar({ isPreLaunch, onOpenWaitlistModal }) {
           ) : (
             <div className="flex items-center gap-2">
               <button
-                onClick={() => alert('Redirecting to Besidebanq Web Dashboard...')}
+                onClick={() => alert('Redirecting to BesideBanq Web Dashboard...')}
                 className="text-sm font-semibold transition-colors"
                 style={{ color: 'var(--text-sub)' }}
               >

@@ -11,6 +11,7 @@ import FeeCalculator from '@/components/FeeCalculator';
 import ESimSearch from '@/components/ESimSearch';
 import SecurityTrust from '@/components/SecurityTrust';
 import Footer from '@/components/Footer';
+import PeopleSection from '@/components/PeopleSection';
 
 // ─── PHASE CONFIGURATION (Backend-Controlled) ───────────────────────────────
 // Toggle this constant on the server/CMS to switch between phases.
@@ -41,6 +42,9 @@ export default function Home() {
           onOpenWaitlistModal={() => setIsWaitlistOpen(true)}
           onReservedTag={(tag) => setReservedTag(tag)}
         />
+
+        {/* Real People, Real Stories — Video + Diverse Story Cards */}
+        <PeopleSection />
 
         {/* Audience Partitioning — Individuals vs Importers & Businesses */}
         <AudienceTabs />

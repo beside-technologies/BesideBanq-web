@@ -55,8 +55,7 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] tracking-tight" style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-main)' }}>
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.1] tracking-normal" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
               Helping you live a{' '}
               <br className="hidden sm:inline" />
               <span style={{
@@ -73,7 +72,7 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
             <p className="text-lg md:text-xl max-w-2xl leading-relaxed" style={{ color: 'var(--text-sub)' }}>
               Move money home with instant{' '}
               <span className="font-bold" style={{ color: 'var(--text-main)' }}>BanqDrop</span>{' '}
-              P2P, save yield-bearing USD, invest in global markets, and let{' '}
+              via @tag, save in inflation-protected USD, and let{' '}
               <span className="font-bold" style={{ color: 'var(--brand-violet)' }}>Euda AI</span>{' '}
               manage your finances autonomously.
             </p>
@@ -82,15 +81,17 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
             {isPreLaunch ? (
               <div className="space-y-5 pt-1">
                 <form onSubmit={handleClaimSubmit} className="max-w-xl">
-                  {/* Pill input + button */}
-                  <div className="flex flex-col sm:flex-row items-center gap-2 p-2 rounded-full shadow-xl"
+
+                  {/* ── Mobile: Card layout ── Desktop: Single pill ── */}
+
+                  {/* DESKTOP pill (hidden on mobile) */}
+                  <div className="hidden sm:flex items-center gap-2 p-2 rounded-full shadow-xl"
                     style={{
                       background: '#FFFFFF',
                       border: '1.5px solid rgba(44,43,154,0.2)',
                       boxShadow: '0 12px 40px rgba(44,43,154,0.12)',
                     }}>
-
-                    <div className="flex-1 flex items-center gap-1.5 px-4 py-3 w-full">
+                    <div className="flex-1 flex items-center gap-1.5 px-4 py-3">
                       <span className="text-xl font-extrabold" style={{ color: 'var(--brand-primary)' }}>@</span>
                       <input
                         type="text"
@@ -112,12 +113,52 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
                         </span>
                       )}
                     </div>
-
-                    <button type="submit" className="btn-primary w-full sm:w-auto text-sm px-7 py-3.5 rounded-full whitespace-nowrap flex-shrink-0">
+                    <button type="submit" className="btn-primary text-sm px-7 py-3.5 rounded-full whitespace-nowrap flex-shrink-0">
                       <span>Claim @tag</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
+
+                  {/* MOBILE card (visible only on mobile) */}
+                  <div className="sm:hidden rounded-2xl overflow-hidden shadow-xl"
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1.5px solid rgba(44,43,154,0.18)',
+                      boxShadow: '0 12px 40px rgba(44,43,154,0.12)',
+                    }}>
+                    {/* Input row */}
+                    <div className="flex items-center gap-2 px-5 py-4"
+                      style={{ borderBottom: '1px solid rgba(44,43,154,0.08)' }}>
+                      <span className="text-2xl font-extrabold flex-shrink-0" style={{ color: 'var(--brand-primary)' }}>@</span>
+                      <input
+                        type="text"
+                        value={handleInput}
+                        onChange={handleInputChange}
+                        placeholder="yourname"
+                        className="flex-1 bg-transparent text-lg font-bold focus:outline-none"
+                        style={{ color: 'var(--text-main)', fontFamily: 'var(--font-heading)', minWidth: 0 }}
+                        required
+                      />
+                      {isChecking && (
+                        <div className="w-4 h-4 border-2 border-t-transparent rounded-full animate-spin flex-shrink-0"
+                          style={{ borderColor: 'var(--brand-primary)' }} />
+                      )}
+                      {isAvailable && !isChecking && (
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold whitespace-nowrap"
+                          style={{ background: 'rgba(10,236,209,0.12)', color: '#00967D', border: '1px solid rgba(10,236,209,0.3)' }}>
+                          <Check className="w-3 h-3" /> Available
+                        </span>
+                      )}
+                    </div>
+                    {/* Button row — full width, no extra margin */}
+                    <button type="submit"
+                      className="w-full flex items-center justify-center gap-2 py-4 text-base font-bold text-white"
+                      style={{ background: 'var(--gradient-primary)', fontFamily: 'var(--font-heading)' }}>
+                      <span>Claim @tag</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </div>
+
                 </form>
 
                 {/* Trust signals */}

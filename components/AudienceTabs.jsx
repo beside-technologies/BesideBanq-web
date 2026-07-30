@@ -29,7 +29,7 @@ export default function AudienceTabs() {
             Built for individuals and global business trade.
           </h2>
           <p className="text-lg text-slate-600 font-normal">
-            Whether you're sending money home to loved ones or settling international supplier invoices, Besidebanq gives you complete financial control.
+            Whether you're sending money home to loved ones or settling international supplier invoices, BesideBanq gives you complete financial control.
           </p>
 
           {/* Tab Buttons */}
@@ -69,7 +69,7 @@ export default function AudienceTabs() {
                 <div className="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xl">
                   ⚡
                 </div>
-                <h3 className="text-xl font-bold text-slate-900">BanqDrop P2P</h3>
+                <h3 className="text-xl font-bold text-slate-900">BanqDrop Instant Send</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   Send money instantly to any <strong>@tag</strong>. Free forever. No bank account numbers or SWIFT codes required.
                 </p>
@@ -79,7 +79,7 @@ export default function AudienceTabs() {
               </div>
             </div>
 
-            {/* Feature 2: High Yield USD Savings */}
+            {/* Feature 2: USD Savings */}
             <div className="glass-card p-6 space-y-4 hover:shadow-xl transition-all duration-300 border border-indigo-100 flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xl">
@@ -87,7 +87,7 @@ export default function AudienceTabs() {
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">USD Savings</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Protect your wealth from inflation by saving in yield-bearing USD wallets with automated interest payouts.
+                  Protect your wealth from inflation by saving in USD wallets with automated compounding interest.
                 </p>
               </div>
               <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-100 text-xs font-bold text-emerald-800 flex justify-between">
@@ -148,10 +148,10 @@ export default function AudienceTabs() {
                   Pay Chinese & Global Suppliers Instantly in CNY or Stablecoins.
                 </h3>
                 <p className="text-slate-600 text-base leading-relaxed">
-                  Besidebanq executes just-in-time currency conversion. UK/US importers pay in stablecoins or local currency, while Chinese suppliers receive native CNY directly into their <strong>Alipay</strong> or bank accounts in seconds.
+                  BesideBanq executes just-in-time currency conversion. UK/US importers pay in stablecoins or local currency, while Chinese suppliers receive native CNY directly into their <strong>Alipay</strong> or bank accounts in seconds.
                 </p>
 
-                {/* Bank vs Besidebanq Table */}
+                {/* Bank vs BesideBanq Table */}
                 <div className="glass-card p-4 rounded-2xl border border-slate-200 shadow-sm space-y-3 text-xs">
                   <div className="grid grid-cols-3 font-bold text-slate-400 uppercase tracking-wider pb-2 border-b border-slate-100">
                     <span>Platform</span>
@@ -166,7 +166,7 @@ export default function AudienceTabs() {
                   </div>
 
                   <div className="grid grid-cols-3 font-extrabold items-center text-indigo-900 bg-indigo-50/70 p-2 rounded-xl">
-                    <span className="flex items-center gap-1 text-[#1D1E81]">⚡ Besidebanq</span>
+                    <span className="flex items-center gap-1 text-[#1D1E81]">⚡ BesideBanq</span>
                     <span className="text-emerald-600 font-bold">Seconds</span>
                     <span className="text-emerald-600 font-bold">Near Zero ($0)</span>
                   </div>

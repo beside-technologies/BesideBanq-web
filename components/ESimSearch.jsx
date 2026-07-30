@@ -40,7 +40,7 @@ export default function ESimSearch() {
             </h2>
 
             <p className="text-slate-400 text-base leading-relaxed">
-              Buy low-cost mobile data roaming packages directly inside Besidebanq. No swapping physical SIMs — activate your eSIM in 2 clicks.
+              Buy low-cost mobile data roaming packages directly inside BesideBanq. No swapping physical SIMs — activate your eSIM in 2 clicks.
             </p>
 
             {/* Interactive Search Bar */}

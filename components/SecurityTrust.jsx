@@ -18,7 +18,7 @@ export default function SecurityTrust() {
             Your money and data, protected at every layer.
           </h2>
           <p className="text-lg text-slate-600">
-            Besidebanq combines 256-bit end-to-end encryption, biometric authentication, and strict regulatory compliance to safeguard your borderless assets.
+            BesideBanq combines 256-bit end-to-end encryption, biometric authentication, and strict regulatory compliance to safeguard your borderless assets.
           </p>
         </div>
 

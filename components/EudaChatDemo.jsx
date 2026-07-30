@@ -39,13 +39,13 @@ export default function EudaChatDemo() {
             </h2>
 
             <p className="text-base md:text-lg text-slate-600 leading-relaxed font-normal">
-              Named after the Greek concept of human flourishing and living a good life, <strong>Euda</strong> is your warm, empathetic financial partner. Rather than creating expense guilt, Euda celebrates your life choices while managing your budget autonomously.
+              Named after the Greek concept of human flourishing and living a good life, <strong>Euda</strong> is your warm, empathetic financial partner that celebrates your life choices while managing your budget autonomously.
             </p>
 
             <div className="space-y-3 pt-2">
               <div className="flex items-center gap-3 text-sm font-semibold text-slate-800">
                 <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold">✓</div>
-                <span>Zero Expense Guilt &amp; Empowering Financial Advice</span>
+                <span>Empowering Financial Advice &amp; Coaching</span>
               </div>
               <div className="flex items-center gap-3 text-sm font-semibold text-slate-800">
                 <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold">✓</div>

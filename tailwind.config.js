@@ -50,8 +50,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        display: ['"Bagel Fat One"', 'cursive', 'sans-serif'],
+        heading: ['"Nunito"', 'sans-serif'],
+        body: ['"Host Grotesk"', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-brand':   'linear-gradient(160deg, #C4C8F0 0%, #7B5CF5 45%, #2C2B9A 75%, #1A1B6B 100%)',

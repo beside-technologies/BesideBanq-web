@@ -88,7 +88,7 @@ export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
               <div className="flex items-start gap-2.5 text-xs text-slate-500">
                 <input type="checkbox" id="consent" defaultChecked required className="mt-0.5 rounded text-indigo-600" />
                 <label htmlFor="consent">
-                  I agree to receive product launch updates and marketing emails from Besidebanq. Unsubscribe anytime.
+                  I agree to receive product launch updates and marketing emails from BesideBanq. Unsubscribe anytime.
                 </label>
               </div>
 

@@ -26,7 +26,7 @@ export default function ScanTransferDemo() {
       rawText: `"Transfer 150 USDC for school fees to @kofi_edu"`,
       parsed: {
         payee: "Kofi Edu (@kofi_edu)",
-        bank: "Besidebanq BanqDrop",
+        bank: "BesideBanq BanqDrop",
         account: "@kofi_edu",
         amount: "150.00 USDC"
       }
