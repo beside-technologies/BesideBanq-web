@@ -18,41 +18,41 @@
    • Font: Plus Jakarta Sans (matches the bold condensed heading style in designs)
    ─────────────────────────────────────────────────────────────────────────── */
 :root {
-  /* Typography — Nunito headings (rounded/bold like Optraction) + Host Grotesk body */
-  --font-heading: 'Nunito', sans-serif;
-  --font-body: 'Host Grotesk', sans-serif;
+  /* Typography — Outfit headings (bold grotesque like Optraction) + Plus Jakarta Sans body */
+  --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
 
   /* Core brand palette */
-  --brand-primary:    #2C2B9A;   /* Deep indigo — CTA buttons, UMA banner */
-  --brand-mid:        #4B3FD0;   /* Mid violet — hover/gradients */
-  --brand-violet:     #7B5CF5;   /* Vibrant violet — onboarding gradient mid */
-  --brand-lavender:   #C4C8F0;   /* Soft lavender — onboarding gradient top */
-  --brand-teal:       #0AECD1;   /* Teal accent — phone frame border, highlights */
-  --brand-navy:       #1A1B6B;   /* Deep navy — splash gradient bottom dark */
+  --brand-primary:    #2C2B9A;   /* Deep royal indigo — CTA buttons */
+  --brand-mid:        #4F46E5;   /* Indigo 600 — hover/gradients */
+  --brand-violet:     #6366F1;   /* Vibrant indigo — accents */
+  --brand-lavender:   #E0E7FF;   /* Soft indigo tint */
+  --brand-teal:       #0AECD1;   /* Electric teal — accents */
+  --brand-navy:       #1D1E81;   /* Deep navy */
 
-  /* Background surfaces */
-  --bg-primary:     #F0F1FF;    /* Light lavender screen bg (Home, Sign-up) */
-  --bg-pure:        #EEEEFF;    /* Even softer lavender for hero sections */
+  /* Background surfaces — Clean, crisp Optraction / Kredete palette */
+  --bg-primary:     #F8FAFC;    /* Slate-50 — crisp modern screen bg */
+  --bg-pure:        #FFFFFF;    /* Pure white */
   --bg-card:        #FFFFFF;    /* White cards */
-  --bg-dark:        #0D0D24;    /* Near-black for dark sections */
-  --bg-dark-card:   #16183A;    /* Dark card surfaces */
+  --bg-dark:        #0F172A;    /* Slate-900 — rich dark section bg */
+  --bg-dark-card:   #1E293B;    /* Slate-800 — dark card surfaces */
 
-  /* Text */
-  --text-main:    #0D0D24;    /* Primary headings / body */
-  --text-sub:     #3C3C6E;    /* Secondary / subheadings */
-  --text-muted:   #6B6B9A;    /* Muted / placeholder */
-  --text-light:   #9898C0;    /* Light helper text */
+  /* Text — High-contrast Slate palette */
+  --text-main:    #0F172A;    /* Primary headings (Slate 900) */
+  --text-sub:     #475569;    /* Secondary text (Slate 600) */
+  --text-muted:   #64748B;    /* Muted text (Slate 500) */
+  --text-light:   #94A3B8;    /* Light text (Slate 400) */
   --text-white:   #FFFFFF;
 
   /* Borders */
-  --border-color:      #E2E2F0;
-  --border-soft:       rgba(44, 43, 154, 0.12);
+  --border-color:      #E2E8F0;    /* Slate 200 */
+  --border-soft:       rgba(15, 23, 42, 0.08);
 
-  /* Gradients — matching splash and onboarding screens */
-  --gradient-brand:    linear-gradient(160deg, #C4C8F0 0%, #7B5CF5 45%, #2C2B9A 75%, #1A1B6B 100%);
-  --gradient-primary:  linear-gradient(135deg, #2C2B9A 0%, #4B3FD0 50%, #7B5CF5 100%);
-  --gradient-teal:     linear-gradient(135deg, #0AECD1 0%, #4B3FD0 100%);
-  --gradient-glass:    linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(240,241,255,0.7) 100%);
+  /* Gradients — matching Optraction and Kredete high-end feel */
+  --gradient-brand:    linear-gradient(160deg, #E0E7FF 0%, #6366F1 45%, #2C2B9A 75%, #1D1E81 100%);
+  --gradient-primary:  linear-gradient(135deg, #1D1E81 0%, #4F46E5 50%, #6366F1 100%);
+  --gradient-teal:     linear-gradient(135deg, #0AECD1 0%, #4F46E5 100%);
+  --gradient-glass:    linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.85) 100%);
 
   /* Shadows */
   --shadow-sm:   0 4px 12px rgba(44, 43, 154, 0.06);

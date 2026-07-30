@@ -68,11 +68,13 @@ export default function EudaChatDemo() {
               {/* Header */}
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 text-white flex items-center justify-center font-extrabold shadow-md">
-                    ⚡
-                  </div>
+                  <img
+                    src="/euda-avatar.png"
+                    alt="Euda"
+                    className="w-10 h-10 rounded-2xl object-cover shadow-md border border-purple-400/30"
+                  />
                   <div>
-                    <div className="font-extrabold text-base text-white">Euda AI</div>
+                    <div className="font-extrabold text-base text-white">Euda</div>
                     <div className="text-xs text-indigo-300">Financial Companion • Always Active</div>
                   </div>
                 </div>
@@ -93,9 +95,11 @@ export default function EudaChatDemo() {
 
                 {/* Euda Response Bubble */}
                 <div className="flex items-start gap-3 animate-fadeIn">
-                  <div className="w-8 h-8 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-1">
-                    ⚡
-                  </div>
+                  <img
+                    src="/euda-avatar.png"
+                    alt="Euda"
+                    className="w-8 h-8 rounded-full object-cover shrink-0 mt-1 border border-purple-400/30 shadow-md"
+                  />
                   <div className="bg-white/10 border border-white/15 text-slate-100 p-4 rounded-2xl rounded-tl-xs max-w-md text-sm leading-relaxed shadow-md">
                     {prompts[selectedPromptIndex].euda}
                   </div>

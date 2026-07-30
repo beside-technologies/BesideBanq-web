@@ -16,7 +16,7 @@ export default function Navbar({ isPreLaunch, onOpenWaitlistModal }) {
   const navLinks = [
     { label: 'Products',       href: '#features' },
     { label: 'Audience',       href: '#audience' },
-    { label: 'Euda AI',        href: '#euda',       accent: true },
+    { label: 'Euda',            href: '#euda',       accent: true },
     { label: 'Rates & Speeds', href: '#calculator' },
     { label: 'Security',       href: '#security' },
   ];
@@ -25,11 +25,11 @@ export default function Navbar({ isPreLaunch, onOpenWaitlistModal }) {
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={isScrolled ? {
-        background: 'rgba(240, 241, 255, 0.92)',
+        background: 'rgba(255, 255, 255, 0.88)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(44, 43, 154, 0.1)',
-        boxShadow: '0 4px 24px rgba(44, 43, 154, 0.06)',
+        borderBottom: '1px solid rgba(226, 232, 240, 0.8)',
+        boxShadow: '0 4px 24px rgba(15, 23, 42, 0.04)',
         padding: '10px 0',
       } : {
         background: 'transparent',

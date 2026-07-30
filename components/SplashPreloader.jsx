@@ -132,18 +132,18 @@ export default function SplashPreloader() {
         </div>
 
         {/* Dynamic Tagline & Loading Progress */}
-        <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-3 text-center px-4">
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-[#0AECD1] animate-ping" />
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-300">
-              {filled ? 'Welcome to BesideBanq' : 'Loading Global Super-App...'}
+            <div className="w-2 h-2 rounded-full bg-[#0AECD1] animate-ping shrink-0" />
+            <span className="text-xs sm:text-sm font-bold tracking-wide text-white" style={{ fontFamily: 'var(--font-heading)' }}>
+              {filled ? 'BanqDrop Instant Transfers & Euda' : 'Helping you live a better life, globally.'}
             </span>
           </div>
 
           {/* Sleek Line Progress Indicator */}
-          <div className="w-56 h-1 rounded-full bg-white/10 overflow-hidden relative">
+          <div className="w-64 h-1 rounded-full bg-white/10 overflow-hidden relative mt-1">
             <div className="h-full bg-gradient-to-r from-[#0AECD1] via-[#7B5CF5] to-[#2C2B9A] transition-all duration-1000 ease-out"
-              style={{ width: filled ? '100%' : '60%' }} />
+              style={{ width: filled ? '100%' : '65%' }} />
           </div>
         </div>
 

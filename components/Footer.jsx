@@ -63,12 +63,12 @@ export default function Footer() {
             {/* Social links */}
             <div className="flex items-center gap-3">
               {[
-                { icon: TwitterIcon,   href: '#', label: 'Twitter' },
-                { icon: InstagramIcon, href: '#', label: 'Instagram' },
-                { icon: LinkedinIcon,  href: '#', label: 'LinkedIn' },
-                { icon: YoutubeIcon,   href: '#', label: 'YouTube' },
+                { icon: TwitterIcon,   href: 'https://x.com/besidebanq',          label: 'Twitter / X (@besidebanq)' },
+                { icon: InstagramIcon, href: 'https://instagram.com/besidebanq',  label: 'Instagram (@besidebanq)' },
+                { icon: LinkedinIcon,  href: 'https://linkedin.com/company/besidebanq', label: 'LinkedIn (@besidebanq)' },
+                { icon: YoutubeIcon,   href: 'https://youtube.com/@besidebanq',   label: 'YouTube (@besidebanq)' },
               ].map(({ icon: Icon, href, label }) => (
-                <a key={label} href={href} aria-label={label}
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
                   className="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:-translate-y-0.5"
                   style={{ background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.5)' }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(44,43,154,0.5)'; e.currentTarget.style.color = '#fff'; }}
@@ -89,7 +89,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs font-medium">
               {[
                 ['BanqDrop', '#features'],
-                ['Euda AI Agent', '#euda'],
+                ['Euda Companion', '#euda'],
                 ['Buddy Escrow', '#audience'],
                 ['USD Savings', '#calculator'],
                 ['China CNY Rails', '#calculator'],
