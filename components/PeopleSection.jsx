@@ -14,47 +14,53 @@ const VIDEOS = [
 
 const VIDEO_DURATION = 4000; // 4 seconds max per video
 
-// Story cards — Pan-African & Global Trade Representation (Strict Image/Name/Gender Match)
+// Story cards — Pan-African & Global Trade Representation (Clean Name & Location Split)
 const STORIES = [
   {
     img: '/media/blushing_woman.jpg',
-    name: 'Amina B., Abuja & Kano',
-    flag: 'NG - West Africa',
+    name: 'Amina B.',
+    location: 'Abuja & Kano',
+    region: 'NG - West Africa',
     quote: '"I manage tech operations between Abuja and Kano. Receiving funds via @tag with zero NIBSS delay helps me run my team smoothly."',
     tag: 'NIBSS & BanqDrop',
   },
   {
     img: '/media/chinese_businessman.png',
-    name: 'Wei Zhang, Guangzhou',
-    flag: 'CN - Asia Corridor',
+    name: 'Wei Zhang',
+    location: 'Guangzhou',
+    region: 'CN - Asia Corridor',
     quote: '"I export wholesale merchandise across Africa. BesideBanq\'s CNY rail means African merchants pay in local funds and I receive CNY instantly."',
     tag: 'Alipay Supplier Rail',
   },
   {
     img: '/media/student_fees.png',
-    name: 'Tendai K., Harare & London',
-    flag: 'ZW - Southern Africa',
+    name: 'Tendai K.',
+    location: 'Harare & London',
+    region: 'ZW - Southern Africa',
     quote: '"Paying university tuition and sending money back to Harare used to take 4 days over SWIFT. BesideBanq delivers USD in seconds."',
     tag: 'USD Direct Deposit',
   },
   {
     img: '/media/woman_holding_phone_to_ear_and_smiling.jpg',
-    name: 'Wanjiku N., Nairobi',
-    flag: 'KE - East Africa',
+    name: 'Wanjiku N.',
+    location: 'Nairobi',
+    region: 'KE - East Africa',
     quote: '"I auto-save in USD and settle suppliers directly via M-PESA. Euda keeps my budget balanced when traveling with eSIM data."',
     tag: 'M-PESA & USD Vault',
   },
   {
     img: '/media/mother_receiving.png',
-    name: 'Mireille M., Douala',
-    flag: 'CM - Central Africa',
+    name: 'Mireille M.',
+    location: 'Douala',
+    region: 'CM - Central Africa',
     quote: '"My business in Douala receives payments from clients across West & Central Africa. FCFA mobile money settlement is instant."',
     tag: 'XAF Orange Money',
   },
   {
     img: '/media/business_handshake.png',
-    name: 'Tariq & Partners, Algiers',
-    flag: 'DZ - North Africa',
+    name: 'Tariq & Partners',
+    location: 'Algiers',
+    region: 'DZ - North Africa',
     quote: '"Managing multi-currency EUR and USD settlement between Algiers, Paris, and cross-border trade hubs is completely seamless."',
     tag: 'EUR/USD Multi-Wallet',
   },
@@ -202,15 +208,22 @@ export default function PeopleSection({ onOpenWaitlistModal }) {
                   </span>
                 </div>
 
-                {/* Card body */}
-                <div className="p-4 space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg">{story.flag}</span>
-                    <span className="text-sm font-bold" style={{ color: 'var(--text-main)', fontFamily: 'var(--font-heading)' }}>
-                      {story.name}
+                {/* Card body — Clean Name & Location separation */}
+                <div className="p-4 space-y-2.5">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <h3 className="text-base font-extrabold text-slate-900 leading-snug" style={{ fontFamily: 'var(--font-heading)' }}>
+                        {story.name}
+                      </h3>
+                      <p className="text-xs font-semibold text-indigo-600/90 pt-0.5">
+                        {story.location}
+                      </p>
+                    </div>
+                    <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200/60 whitespace-nowrap">
+                      {story.region}
                     </span>
                   </div>
-                  <p className="text-xs leading-relaxed italic" style={{ color: 'var(--text-muted)' }}>
+                  <p className="text-xs leading-relaxed italic text-slate-600 pt-1">
                     {story.quote}
                   </p>
                 </div>
