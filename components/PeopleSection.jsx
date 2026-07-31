@@ -14,49 +14,49 @@ const VIDEOS = [
 
 const VIDEO_DURATION = 4000; // 4 seconds max per video
 
-// Story cards — Pan-African & Global Trade Representation
+// Story cards — Pan-African & Global Trade Representation (Strict Image/Name/Gender Match)
 const STORIES = [
   {
     img: '/media/blushing_woman.jpg',
-    name: 'Usman B., Abuja & Kano',
+    name: 'Amina B., Abuja & Kano',
     flag: 'NG - West Africa',
-    quote: '"I run tech operations between Abuja and Kano. Receiving payments via @tag with zero NIBSS delay has changed how I pay my remote team."',
+    quote: '"I manage tech operations between Abuja and Kano. Receiving funds via @tag with zero NIBSS delay helps me run my team smoothly."',
     tag: 'NIBSS & BanqDrop',
   },
   {
     img: '/media/chinese_businessman.png',
-    name: 'Jean-Luc M., Douala',
-    flag: 'CM - Central Africa',
-    quote: '"I import logistics gear from Guangzhou to Cameroon. BesideBanq converts XAF to CNY and pays my supplier\'s Alipay in seconds."',
-    tag: 'XAF & Alipay Rail',
+    name: 'Wei Zhang, Guangzhou',
+    flag: 'CN - Asia Corridor',
+    quote: '"I export wholesale merchandise across Africa. BesideBanq\'s CNY rail means African merchants pay in local funds and I receive CNY instantly."',
+    tag: 'Alipay Supplier Rail',
   },
   {
     img: '/media/student_fees.png',
     name: 'Tendai K., Harare & London',
     flag: 'ZW - Southern Africa',
-    quote: '"Sending money to direct USD accounts in Harare used to take 4 days over SWIFT. BesideBanq delivers USD instantly to my family."',
+    quote: '"Paying university tuition and sending money back to Harare used to take 4 days over SWIFT. BesideBanq delivers USD in seconds."',
     tag: 'USD Direct Deposit',
   },
   {
     img: '/media/woman_holding_phone_to_ear_and_smiling.jpg',
     name: 'Wanjiku N., Nairobi',
     flag: 'KE - East Africa',
-    quote: '"I auto-save in USD and settle suppliers directly via M-PESA. Euda keeps my budget balanced when roaming with eSIM data."',
+    quote: '"I auto-save in USD and settle suppliers directly via M-PESA. Euda keeps my budget balanced when traveling with eSIM data."',
     tag: 'M-PESA & USD Vault',
   },
   {
     img: '/media/mother_receiving.png',
-    name: 'Tariq A., Algiers & Paris',
-    flag: 'DZ - North Africa',
-    quote: '"Managing multi-currency EUR and USD wallets between North Africa and France is seamless. No hidden bank conversion markups."',
-    tag: 'EUR/USD Multi-Wallet',
+    name: 'Mireille M., Douala',
+    flag: 'CM - Central Africa',
+    quote: '"My business in Douala receives payments from clients across West & Central Africa. FCFA mobile money settlement is instant."',
+    tag: 'XAF Orange Money',
   },
   {
     img: '/media/business_handshake.png',
-    name: 'Wei Zhang, Guangzhou',
-    flag: 'CN - Asia Corridor',
-    quote: '"African trade partners pay in local currency or USDC, and I receive native CNY in Guangzhou with direct settlement receipt."',
-    tag: 'Supplier Settlement',
+    name: 'Tariq & Partners, Algiers',
+    flag: 'DZ - North Africa',
+    quote: '"Managing multi-currency EUR and USD settlement between Algiers, Paris, and cross-border trade hubs is completely seamless."',
+    tag: 'EUR/USD Multi-Wallet',
   },
 ];
 
