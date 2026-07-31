@@ -14,49 +14,49 @@ const VIDEOS = [
 
 const VIDEO_DURATION = 4000; // 4 seconds max per video
 
-// Story cards — real photos (uploaded) + AI-generated diverse scenes
+// Story cards — Pan-African & Global Trade Representation
 const STORIES = [
   {
-    img: '/media/woman_holding_phone_to_ear_and_smiling.jpg',
-    name: 'Amara, Lagos',
-    flag: '🇳🇬',
-    quote: '"I received rent money from my daughter in London in seconds. I did not even have to call her."',
-    tag: 'Family Remittance',
-  },
-  {
     img: '/media/blushing_woman.jpg',
-    name: 'Chidinma, Abuja',
-    flag: '🇳🇬',
-    quote: '"BanqDrop hit different. I sent money to my mum using just her @tag and it landed before I hung up."',
-    tag: 'BanqDrop',
-  },
-  {
-    img: '/media/student_fees.png',
-    name: 'Fatima, Toronto',
-    flag: '🇨🇦',
-    quote: '"I paid my university fees directly from BesideBanq. No Western Union, no hidden charges, just done."',
-    tag: 'Student Payments',
-  },
-  {
-    img: '/media/mother_receiving.png',
-    name: 'Mama Akinola, Ibadan',
-    flag: '🇳🇬',
-    quote: '"My son sends every month from the UK. Before it took days. Now I see it the moment he sends. Euda even tells me when it is coming."',
-    tag: 'Family Wallet',
+    name: 'Usman B., Abuja & Kano',
+    flag: 'NG - West Africa',
+    quote: '"I run tech operations between Abuja and Kano. Receiving payments via @tag with zero NIBSS delay has changed how I pay my remote team."',
+    tag: 'NIBSS & BanqDrop',
   },
   {
     img: '/media/chinese_businessman.png',
-    name: 'Wei Zhang, Guangzhou',
-    flag: '🇨🇳',
-    quote: '"I ship goods to Lagos and Accra weekly. BesideBanq\'s CNY corridor means my partners receive instantly and I see confirmation in the app."',
-    tag: 'Trade Payments',
+    name: 'Jean-Luc M., Douala',
+    flag: 'CM - Central Africa',
+    quote: '"I import logistics gear from Guangzhou to Cameroon. BesideBanq converts XAF to CNY and pays my supplier\'s Alipay in seconds."',
+    tag: 'XAF & Alipay Rail',
+  },
+  {
+    img: '/media/student_fees.png',
+    name: 'Tendai K., Harare & London',
+    flag: 'ZW - Southern Africa',
+    quote: '"Sending money to direct USD accounts in Harare used to take 4 days over SWIFT. BesideBanq delivers USD instantly to my family."',
+    tag: 'USD Direct Deposit',
+  },
+  {
+    img: '/media/woman_holding_phone_to_ear_and_smiling.jpg',
+    name: 'Wanjiku N., Nairobi',
+    flag: 'KE - East Africa',
+    quote: '"I auto-save in USD and settle suppliers directly via M-PESA. Euda keeps my budget balanced when roaming with eSIM data."',
+    tag: 'M-PESA & USD Vault',
+  },
+  {
+    img: '/media/mother_receiving.png',
+    name: 'Tariq A., Algiers & Paris',
+    flag: 'DZ - North Africa',
+    quote: '"Managing multi-currency EUR and USD wallets between North Africa and France is seamless. No hidden bank conversion markups."',
+    tag: 'EUR/USD Multi-Wallet',
   },
   {
     img: '/media/business_handshake.png',
-    name: 'Arjun & Emmanuel',
-    flag: 'IN - Global',
-    quote: '"We do business across three continents. BesideBanq is the only app that makes cross-border business feel local."',
-    tag: 'Global Trade',
+    name: 'Wei Zhang, Guangzhou',
+    flag: 'CN - Asia Corridor',
+    quote: '"African trade partners pay in local currency or USDC, and I receive native CNY in Guangzhou with direct settlement receipt."',
+    tag: 'Supplier Settlement',
   },
 ];
 
@@ -97,7 +97,7 @@ export default function PeopleSection({ onOpenWaitlistModal }) {
             </div>
             <div className="md:col-span-5 md:text-right">
               <p className="text-sm md:text-base text-slate-600 leading-relaxed max-w-md md:ml-auto">
-                From Lagos to London, Guangzhou to Accra, Toronto to Ibadan: BesideBanq moves with the people who make the world run.
+                From Algiers to Douala, Nairobi to Harare, Guangzhou to Abuja &amp; Accra: BesideBanq connects global movers across 150+ settlement corridors.
               </p>
             </div>
           </div>

@@ -10,10 +10,10 @@ export default function ESimSearch() {
   const countries = [
     { name: "Ghana", flag: "🇬🇭", plan: "1 GB / 7 Days", price: "$2.50" },
     { name: "Nigeria", flag: "🇳🇬", plan: "3 GB / 30 Days", price: "$4.80" },
+    { name: "Cameroon", flag: "🇨🇲", plan: "2 GB / 14 Days", price: "$3.50" },
     { name: "Kenya", flag: "🇰🇪", plan: "2 GB / 15 Days", price: "$3.90" },
-    { name: "United Kingdom", flag: "🇬🇧", plan: "5 GB / 30 Days", price: "$6.50" },
-    { name: "South Africa", flag: "🇿🇦", plan: "2 GB / 14 Days", price: "$4.00" },
-    { name: "United States", flag: "🇺🇸", plan: "10 GB / 30 Days", price: "$12.00" }
+    { name: "Zimbabwe", flag: "🇿🇼", plan: "3 GB / 30 Days", price: "$4.50" },
+    { name: "Algeria", flag: "🇩🇿", plan: "5 GB / 30 Days", price: "$5.80" }
   ];
 
   const filtered = countries.filter(c => c.name.toLowerCase().includes(searchQuery.toLowerCase()));
