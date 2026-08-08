@@ -25,7 +25,7 @@ const STORIES = [
     tag: 'NIBSS & BanqDrop',
   },
   {
-    img: '/media/chinese_businessman.png',
+    img: '/media/asian_businessman.jpg',
     name: 'Wei Zhang',
     location: 'Guangzhou',
     region: 'CN - Asia Corridor',
@@ -33,7 +33,7 @@ const STORIES = [
     tag: 'Alipay Supplier Rail',
   },
   {
-    img: '/media/student_fees.png',
+    img: '/media/student_smiling_phone.jpg',
     name: 'Tendai K.',
     location: 'Harare & London',
     region: 'ZW - Southern Africa',
