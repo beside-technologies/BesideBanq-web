@@ -32,7 +32,7 @@ The BesideBanq Contact & Inquiry System provides a high-reliability, compliant d
 
 ### 2.1 Sender Authentication & Reputation Isolation
 - **Domain Authentication:** `besidebanq.com` is authenticated via **DKIM** (DomainKeys Identified Mail), **SPF** (Sender Policy Framework), and **DMARC** (Domain-based Message Authentication, Reporting, and Conformance).
-- **Subdomain Isolation:** Emails are dispatched via `welcome@besidebanq.com` using `besidebanq.com` authenticated domain configuration with DKIM signed under `mail.besidebanq.com`.
+- **Subdomain Isolation:** Emails are dispatched via `welcome@mail.besidebanq.com`.
 
 ### 2.2 Reply-To & Support Routing
 - In compliance with fintech customer support standards, transactional confirmation emails include a configured `replyTo` parameter pointing to `support@besidebanq.com`.
