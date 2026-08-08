@@ -110,6 +110,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs font-medium">
               {[
                 ['About BesideBanq', '#audience'],
+                ['Contact Us', '/contact'],
                 ['Careers', '#audience'],
                 ['Press & Brand', '#audience'],
                 ['Corridor Rates', '#calculator'],

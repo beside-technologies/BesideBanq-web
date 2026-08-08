@@ -19,6 +19,7 @@ export default function Navbar({ isPreLaunch, onOpenWaitlistModal }) {
     { label: 'Euda',            href: '#euda',       accent: true },
     { label: 'Rates & Speeds', href: '#calculator' },
     { label: 'Security',       href: '#security' },
+    { label: 'Contact',        href: '/contact' },
   ];
 
   return (
