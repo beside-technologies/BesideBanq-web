@@ -90,33 +90,32 @@ export async function POST(req) {
                 body { font-family: 'Plus Jakarta Sans', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #0f172a; -webkit-font-smoothing: antialiased; }
                 .wrapper { width: 100%; background-color: #f8fafc; padding: 32px 16px; box-sizing: border-box; }
                 .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 12px 40px rgba(44,43,154,0.08); }
-                .header { background: #0D0D24; padding: 32px 36px; text-align: left; border-bottom: 3px solid #2C2B9A; }
-                .logo-img { height: 36px; width: auto; display: block; filter: brightness(0) invert(1); }
-                .tagline { color: rgba(255,255,255,0.6); font-size: 12px; margin-top: 6px; font-weight: 500; }
+                .top-bar { height: 5px; background: linear-gradient(90deg, #1D1E81 0%, #4F46E5 50%, #0AECD1 100%); }
+                .header { background: #ffffff; padding: 28px 36px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+                .logo-img { height: 38px; width: auto; display: block; }
+                .tagline { color: #64748b; font-size: 12px; margin-top: 6px; font-weight: 500; }
                 .body-content { padding: 36px; }
                 .badge { display: inline-block; background: rgba(44,43,154,0.08); color: #2C2B9A; border: 1px solid rgba(44,43,154,0.18); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 14px; border-radius: 20px; margin-bottom: 20px; }
                 h1 { color: #0f172a; font-size: 24px; font-weight: 800; margin: 0 0 12px 0; line-height: 1.25; }
                 p { font-size: 15px; line-height: 1.6; color: #475569; margin: 0 0 20px 0; }
                 .summary-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; margin: 24px 0; }
                 .summary-title { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin-bottom: 12px; }
-                .summary-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 14px; border-bottom: 1px dashed #cbd5e1; }
-                .summary-row:last-child { border-bottom: none; }
-                .summary-label { color: #64748b; font-weight: 500; }
-                .summary-val { color: #0f172a; font-weight: 700; text-align: right; }
                 .btn-cta { display: inline-block; background: linear-gradient(135deg, #1D1E81 0%, #4F46E5 100%); color: #ffffff !important; font-weight: 700; font-size: 14px; padding: 14px 28px; border-radius: 12px; text-decoration: none; margin-top: 10px; box-shadow: 0 4px 14px rgba(44,43,154,0.25); }
-                .footer { background: #0D0D24; padding: 32px 36px; text-align: center; color: rgba(255,255,255,0.5); font-size: 12px; line-height: 1.6; }
+                .footer { background: #0D0D24; padding: 32px 36px; text-align: center; color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.6; }
                 .footer a { color: #0AECD1; text-decoration: none; font-weight: 600; }
                 .social-row { margin-bottom: 16px; }
-                .social-row a { margin: 0 8px; color: rgba(255,255,255,0.7); text-decoration: none; font-weight: 600; font-size: 12px; }
+                .social-row a { margin: 0 8px; color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 600; font-size: 12px; }
               </style>
             </head>
             <body>
               <div class="wrapper">
                 <div class="container">
                   
+                  <div class="top-bar"></div>
+
                   <!-- Header with Official Logo -->
                   <div class="header">
-                    <img src="https://besidebanq.com/besidebanq-logo.svg" alt="BesideBanq" class="logo-img" style="height:36px;" />
+                    <img src="https://besidebanq.com/besidebanq-logo.svg" alt="BesideBanq" class="logo-img" />
                     <div class="tagline">Helping people live a better life, globally.</div>
                   </div>
 
@@ -153,10 +152,10 @@ export async function POST(req) {
                       <a href="https://linkedin.com/company/besidebanq">LinkedIn</a> &bull;
                       <a href="https://besidebanq.com/contact">Contact Us</a>
                     </div>
-                    <p style="margin: 0 0 8px 0; color: rgba(255,255,255,0.4);">
+                    <p style="margin: 0 0 8px 0; color: rgba(255,255,255,0.5);">
                       © ${new Date().getFullYear()} BesideBanq Inc. All rights reserved.
                     </p>
-                    <p style="margin: 0; font-size: 11px; color: rgba(255,255,255,0.3);">
+                    <p style="margin: 0; font-size: 11px; color: rgba(255,255,255,0.4);">
                       BesideBanq is a borderless financial super-app enabling global money movement, USD savings, and trade liquidity across 60+ markets.
                     </p>
                   </div>
@@ -202,31 +201,35 @@ export async function POST(req) {
             <head>
               <meta charset="utf-8">
               <style>
-                body { font-family: 'Plus Jakarta Sans', Arial, sans-serif; background-color: #0d0d24; margin: 0; padding: 20px; color: #ffffff; }
-                .card { max-width: 600px; margin: 0 auto; background: #1e293b; border-radius: 16px; padding: 32px; border: 1px solid #334155; }
-                .badge { display: inline-block; background: #0AECD1; color: #0f172a; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; margin-bottom: 16px; }
-                h2 { color: #ffffff; margin-top: 0; font-size: 20px; }
-                .table-info { width: 100%; border-collapse: collapse; margin: 20px 0; background: #0f172a; border-radius: 10px; overflow: hidden; }
-                .table-info td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid #1e293b; color: #cbd5e1; }
-                .table-info td.label { font-weight: 700; color: #94a3b8; width: 35%; }
-                .msg-box { background: #0f172a; border-left: 4px solid #0AECD1; padding: 16px; border-radius: 8px; margin: 16px 0; font-size: 14px; color: #e2e8f0; }
-                .btn-reply { display: inline-block; background: #4F46E5; color: #ffffff !important; font-weight: 700; font-size: 13px; padding: 12px 24px; border-radius: 8px; text-decoration: none; margin-top: 16px; }
+                body { font-family: 'Plus Jakarta Sans', Arial, sans-serif; background-color: #f1f5f9; margin: 0; padding: 20px; color: #0f172a; }
+                .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; padding: 32px; border: 1px solid #cbd5e1; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+                .header-logo { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #e2e8f0; }
+                .badge { display: inline-block; background: #dbeafe; color: #1e40af; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; margin-bottom: 16px; }
+                h2 { color: #0f172a; margin-top: 0; font-size: 20px; }
+                .table-info { width: 100%; border-collapse: collapse; margin: 20px 0; background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0; overflow: hidden; }
+                .table-info td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+                .table-info td.label { font-weight: 700; color: #64748b; width: 35%; }
+                .msg-box { background: #f8fafc; border-left: 4px solid #4F46E5; padding: 16px; border-radius: 8px; margin: 16px 0; font-size: 14px; color: #1e293b; border: 1px solid #e2e8f0; border-left-width: 4px; }
+                .btn-reply { display: inline-block; background: #4F46E5; color: #ffffff !important; font-weight: 700; font-size: 13px; padding: 12px 24px; border-radius: 8px; text-decoration: none; margin-top: 16px; box-shadow: 0 4px 12px rgba(79,70,229,0.25); }
               </style>
             </head>
             <body>
               <div class="card">
+                <div class="header-logo">
+                  <img src="https://besidebanq.com/besidebanq-logo.svg" alt="BesideBanq" style="height:32px; width:auto;" />
+                </div>
                 <div class="badge">🚨 New Lead Alert</div>
                 <h2>New Contact Form Inquiry</h2>
                 <table class="table-info">
                   <tr><td class="label">Full Name</td><td>${fullName}</td></tr>
                   <tr><td class="label">Company</td><td>${companyName || 'N/A'}</td></tr>
-                  <tr><td class="label">Website</td><td>${website ? `<a href="${website}" style="color:#0AECD1;">${website}</a>` : 'N/A'}</td></tr>
-                  <tr><td class="label">Email</td><td><a href="mailto:${email}" style="color:#0AECD1;">${email}</a></td></tr>
+                  <tr><td class="label">Website</td><td>${website ? `<a href="${website}" style="color:#4F46E5;">${website}</a>` : 'N/A'}</td></tr>
+                  <tr><td class="label">Email</td><td><a href="mailto:${email}" style="color:#4F46E5;">${email}</a></td></tr>
                   <tr><td class="label">Phone / WhatsApp</td><td>${phone || 'N/A'}</td></tr>
                   <tr><td class="label">Service Needed</td><td>${serviceNeeded || 'N/A'}</td></tr>
                   <tr><td class="label">Timestamp</td><td>${new Date().toLocaleString()}</td></tr>
                 </table>
-                <div style="font-size: 12px; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Message Content:</div>
+                <div style="font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase;">Message Content:</div>
                 <div class="msg-box">${message || 'No additional details provided.'}</div>
                 <a href="mailto:${email}?subject=RE:%20BesideBanq%20Inquiry%20-${encodeURIComponent(serviceNeeded || 'General')}" class="btn-cta btn-reply">Reply Direct to Client &rarr;</a>
               </div>
