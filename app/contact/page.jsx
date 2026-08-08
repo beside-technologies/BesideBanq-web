@@ -10,6 +10,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     fullName: '',
     companyName: '',
+    website: '',
     email: '',
     phone: '',
     serviceNeeded: 'Chinese Supplier Payouts (CNY)',
@@ -119,6 +120,7 @@ export default function ContactPage() {
                       setFormData({
                         fullName: '',
                         companyName: '',
+                        website: '',
                         email: '',
                         phone: '',
                         serviceNeeded: 'Chinese Supplier Payouts (CNY)',
@@ -156,7 +158,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {/* Company Name & Work Email */}
+                {/* Company Name & Website Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
@@ -174,6 +176,23 @@ export default function ContactPage() {
 
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                      Company Website <span className="text-slate-400 font-normal lowercase">(optional)</span>
+                    </label>
+                    <input
+                      type="url"
+                      name="website"
+                      value={formData.website}
+                      onChange={handleChange}
+                      placeholder="https://example.com"
+                      className="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 text-sm font-semibold text-slate-900 bg-slate-50/50"
+                    />
+                  </div>
+                </div>
+
+                {/* Work Email & Phone/WhatsApp Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                       Email Address <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -186,10 +205,7 @@ export default function ContactPage() {
                       className="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 text-sm font-semibold text-slate-900 bg-slate-50/50"
                     />
                   </div>
-                </div>
 
-                {/* Phone & Service Needed */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                       Phone / WhatsApp Number
@@ -203,25 +219,26 @@ export default function ContactPage() {
                       className="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 text-sm font-semibold text-slate-900 bg-slate-50/50"
                     />
                   </div>
+                </div>
 
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                      Service Needed
-                    </label>
-                    <select
-                      name="serviceNeeded"
-                      value={formData.serviceNeeded}
-                      onChange={handleChange}
-                      className="w-full px-3 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 text-sm font-semibold text-slate-900 bg-slate-50/50"
-                    >
-                      <option value="Chinese Supplier Payouts (CNY)">Chinese Supplier Payouts (CNY)</option>
-                      <option value="Instant Diaspora Remittance">Instant Diaspora Remittance</option>
-                      <option value="USD Multi-Currency Vaults">USD Multi-Currency Vaults</option>
-                      <option value="Buddy Group Escrow Pooling">Buddy Group Escrow Pooling</option>
-                      <option value="eSIM & Global Data Roaming">eSIM &amp; Global Data Roaming</option>
-                      <option value="Other Business Inquiries">Other Business Inquiries</option>
-                    </select>
-                  </div>
+                {/* Service Needed */}
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    Service Needed
+                  </label>
+                  <select
+                    name="serviceNeeded"
+                    value={formData.serviceNeeded}
+                    onChange={handleChange}
+                    className="w-full px-3 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 text-sm font-semibold text-slate-900 bg-slate-50/50"
+                  >
+                    <option value="Chinese Supplier Payouts (CNY)">Chinese Supplier Payouts (CNY)</option>
+                    <option value="Instant Diaspora Remittance">Instant Diaspora Remittance</option>
+                    <option value="USD Multi-Currency Vaults">USD Multi-Currency Vaults</option>
+                    <option value="Buddy Group Escrow Pooling">Buddy Group Escrow Pooling</option>
+                    <option value="eSIM & Global Data Roaming">eSIM &amp; Global Data Roaming</option>
+                    <option value="Other Business Inquiries">Other Business Inquiries</option>
+                  </select>
                 </div>
 
                 {/* Message Details */}

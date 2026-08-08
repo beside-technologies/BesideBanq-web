@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { fullName, companyName, email, phone, serviceNeeded, message } = body;
+    const { fullName, companyName, website, email, phone, serviceNeeded, message } = body;
 
     // Validate required fields
     if (!fullName || !email) {
@@ -46,6 +46,7 @@ export async function POST(req) {
               FIRSTNAME: firstName,
               LASTNAME: lastName,
               COMPANY: companyName || '',
+              WEBSITE: website || '',
               SMS: phone || '',
               SERVICE_NEEDED: serviceNeeded || '',
             },
@@ -116,6 +117,7 @@ export async function POST(req) {
                       <div style="font-size: 13px; color: #334155; line-height: 1.8;">
                         <strong>Name:</strong> ${fullName}<br />
                         <strong>Company:</strong> ${companyName || 'N/A'}<br />
+                        ${website ? `<strong>Website:</strong> <a href="${website}" style="color:#2C2B9A;">${website}</a><br />` : ''}
                         <strong>Service Requested:</strong> ${serviceNeeded || 'General Inquiry'}<br />
                         ${phone ? `<strong>Phone/WhatsApp:</strong> ${phone}<br />` : ''}
                         <strong>Date Received:</strong> ${new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
@@ -159,6 +161,7 @@ export async function POST(req) {
           },
           body: JSON.stringify({
             sender: { email: senderEmail, name: senderName },
+            replyTo: { email: adminNotifyEmail || senderEmail, name: 'BesideBanq Support' },
             to: [{ email: email.trim().toLowerCase(), name: fullName }],
             subject: `Request Confirmation — BesideBanq Global Services`,
             htmlContent: clientEmailHtml,
@@ -198,6 +201,7 @@ export async function POST(req) {
                 <table class="table-info">
                   <tr><td class="label">Full Name</td><td>${fullName}</td></tr>
                   <tr><td class="label">Company</td><td>${companyName || 'N/A'}</td></tr>
+                  <tr><td class="label">Website</td><td>${website ? `<a href="${website}" style="color:#0AECD1;">${website}</a>` : 'N/A'}</td></tr>
                   <tr><td class="label">Email</td><td><a href="mailto:${email}" style="color:#0AECD1;">${email}</a></td></tr>
                   <tr><td class="label">Phone / WhatsApp</td><td>${phone || 'N/A'}</td></tr>
                   <tr><td class="label">Service Needed</td><td>${serviceNeeded || 'N/A'}</td></tr>
@@ -241,6 +245,7 @@ export async function POST(req) {
             timestamp: new Date().toISOString(),
             fullName,
             companyName: companyName || '',
+            website: website || '',
             email,
             phone: phone || '',
             serviceNeeded: serviceNeeded || '',

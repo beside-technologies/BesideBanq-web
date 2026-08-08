@@ -7,6 +7,7 @@ export default function ClientRequestModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
     fullName: '',
     companyName: '',
+    website: '',
     email: '',
     phone: '',
     serviceNeeded: 'Chinese Supplier Payouts (CNY)',
@@ -55,6 +56,7 @@ export default function ClientRequestModal({ isOpen, onClose }) {
     setFormData({
       fullName: '',
       companyName: '',
+      website: '',
       email: '',
       phone: '',
       serviceNeeded: 'Chinese Supplier Payouts (CNY)',
@@ -154,7 +156,7 @@ export default function ClientRequestModal({ isOpen, onClose }) {
                 />
               </div>
 
-              {/* Company Name & Work Email Grid */}
+              {/* Company Name & Website Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
@@ -172,15 +174,14 @@ export default function ClientRequestModal({ isOpen, onClose }) {
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Work Email <span className="text-rose-500">*</span>
+                    Company Website <span className="text-slate-400 font-normal lowercase">(optional)</span>
                   </label>
                   <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
+                    type="url"
+                    name="website"
+                    value={formData.website}
                     onChange={handleChange}
-                    placeholder="name@company.com"
-                    required
+                    placeholder="https://example.com"
                     className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 text-sm font-semibold text-slate-900 bg-slate-50/50"
                   />
                 </div>
