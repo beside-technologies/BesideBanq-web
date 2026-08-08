@@ -49,7 +49,7 @@ const STORIES = [
     tag: 'M-PESA & USD Vault',
   },
   {
-    img: '/media/mother_receiving.png',
+    img: '/media/african_woman_smiling_phone.jpg',
     name: 'Mireille M.',
     location: 'Douala',
     region: 'CM - Central Africa',
@@ -57,7 +57,7 @@ const STORIES = [
     tag: 'XAF Orange Money',
   },
   {
-    img: '/media/business_handshake.png',
+    img: '/media/arab_business_partners_handshake.jpg',
     name: 'Tariq & Partners',
     location: 'Algiers',
     region: 'DZ - North Africa',
