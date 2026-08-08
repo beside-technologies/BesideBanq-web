@@ -34,6 +34,22 @@ export async function POST(req) {
         const firstName = nameParts[0] || '';
         const lastName = nameParts.slice(1).join(' ') || '';
 
+        // Format phone for Brevo SMS attribute (must be E.164 format e.g. +14155552671)
+        const cleanPhone = phone ? phone.replace(/[^0-9+]/g, '') : '';
+        const isValidE164 = /^\+[1-9]\d{6,14}$/.test(cleanPhone);
+
+        const contactAttributes = {
+          FIRSTNAME: firstName,
+          LASTNAME: lastName,
+          COMPANY: companyName || '',
+          WEBSITE: website || '',
+          SERVICE_NEEDED: serviceNeeded || '',
+        };
+
+        if (cleanPhone) {
+          contactAttributes.PHONE = cleanPhone;
+        }
+
         const contactRes = await fetch('https://api.brevo.com/v3/contacts', {
           method: 'POST',
           headers: {
@@ -42,19 +58,17 @@ export async function POST(req) {
           },
           body: JSON.stringify({
             email: email.trim().toLowerCase(),
-            attributes: {
-              FIRSTNAME: firstName,
-              LASTNAME: lastName,
-              COMPANY: companyName || '',
-              WEBSITE: website || '',
-              SMS: phone || '',
-              SERVICE_NEEDED: serviceNeeded || '',
-            },
+            attributes: contactAttributes,
             updateEnabled: true,
           }),
         });
 
+        const contactData = await contactRes.json().catch(() => ({}));
         results.brevoContact = contactRes.ok || contactRes.status === 204;
+        if (!contactRes.ok) {
+          console.error('Brevo Contact Upsert Error:', contactRes.status, contactData);
+          results.contactError = contactData;
+        }
       } catch (err) {
         console.error('Brevo Contact Upsert Error:', err);
       }
@@ -168,7 +182,12 @@ export async function POST(req) {
           }),
         });
 
+        const clientData = await emailRes.json().catch(() => ({}));
         results.clientEmail = emailRes.ok;
+        if (!emailRes.ok) {
+          console.error('Brevo Client Email Error:', emailRes.status, clientData);
+          results.clientEmailError = clientData;
+        }
       } catch (err) {
         console.error('Brevo Client Email Error:', err);
       }
@@ -229,7 +248,12 @@ export async function POST(req) {
           }),
         });
 
+        const adminData = await adminRes.json().catch(() => ({}));
         results.adminEmail = adminRes.ok;
+        if (!adminRes.ok) {
+          console.error('Brevo Admin Email Error:', adminRes.status, adminData);
+          results.adminEmailError = adminData;
+        }
       } catch (err) {
         console.error('Brevo Admin Email Error:', err);
       }
