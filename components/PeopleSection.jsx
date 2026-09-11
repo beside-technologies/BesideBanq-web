@@ -21,48 +21,48 @@ const STORIES = [
     name: 'Amina B.',
     location: 'Abuja & Kano',
     region: 'NG - West Africa',
-    quote: '"I manage tech operations between Abuja and Kano. Receiving funds via @tag with zero NIBSS delay helps me run my team smoothly."',
-    tag: 'NIBSS & BanqDrop',
+    quote: '"I manage business operations between Abuja and Kano. Receiving payments via @tag instantly into our local bank account with zero waiting keeps my team moving."',
+    tag: 'Instant Bank Payout & @tag',
   },
   {
     img: '/media/asian_businessman.jpg',
     name: 'Wei Zhang',
     location: 'Guangzhou',
     region: 'CN - Asia Corridor',
-    quote: '"I export wholesale merchandise across Africa. BesideBanq\'s CNY rail means African merchants pay in local funds and I receive CNY instantly."',
-    tag: 'Alipay Supplier Rail',
+    quote: '"I export wholesale goods across Africa. BesideBanq allows African buyers to pay in their local currency, and I receive payment directly in CNY on Alipay in seconds."',
+    tag: 'Alipay & Direct Supplier Pay',
   },
   {
     img: '/media/student_smiling_phone.jpg',
     name: 'Tendai K.',
     location: 'Harare & London',
     region: 'ZW - Southern Africa',
-    quote: '"Paying university tuition and sending money back to Harare used to take 4 days over SWIFT. BesideBanq delivers USD in seconds."',
-    tag: 'USD Direct Deposit',
+    quote: '"Paying university tuition and sending money back to family used to take 4 days with slow, expensive bank wires. BesideBanq delivers US Dollars in seconds."',
+    tag: 'Instant Dollar Transfers',
   },
   {
     img: '/media/woman_holding_phone_to_ear_and_smiling.jpg',
     name: 'Wanjiku N.',
     location: 'Nairobi',
     region: 'KE - East Africa',
-    quote: '"I auto-save in USD and settle suppliers directly via M-PESA. Euda keeps my budget balanced when traveling with eSIM data."',
-    tag: 'M-PESA & USD Vault',
+    quote: '"I save in US Dollars and pay my suppliers directly through M-PESA. Euda makes it simple to keep an eye on my weekly targets."',
+    tag: 'M-PESA & Dollar Savings',
   },
   {
     img: '/media/african_woman_smiling_phone.jpg',
     name: 'Mireille M.',
     location: 'Douala',
     region: 'CM - Central Africa',
-    quote: '"My business in Douala receives payments from clients across West & Central Africa. FCFA mobile money settlement is instant."',
-    tag: 'XAF Orange Money',
+    quote: '"My business in Douala receives payments from clients across West & Central Africa. Direct mobile money payouts to our local phones arrive instantly."',
+    tag: 'Instant Mobile Money',
   },
   {
     img: '/media/arab_business_partners_handshake.jpg',
     name: 'Tariq & Partners',
     location: 'Algiers',
     region: 'DZ - North Africa',
-    quote: '"Managing multi-currency EUR and USD settlement between Algiers, Paris, and cross-border trade hubs is completely seamless."',
-    tag: 'EUR/USD Multi-Wallet',
+    quote: '"Managing multi-currency business payments between Algiers, Paris, and international trade partners is completely effortless."',
+    tag: 'Multi-Currency Accounts',
   },
 ];
 
@@ -93,17 +93,17 @@ export default function PeopleSection({ onOpenWaitlistModal }) {
         <ScrollReveal direction="up" delay={0}>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end pb-4 border-b border-slate-200/80">
             <div className="md:col-span-7 space-y-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">Global Community</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">Community</span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
-                Built for the world's{' '}
+                Built for people with{' '}
                 <span className="bg-gradient-to-r from-indigo-700 via-indigo-600 to-violet-600 bg-clip-text text-transparent">
-                  global movers
+                  family and business across borders
                 </span>
               </h2>
             </div>
             <div className="md:col-span-5 md:text-right">
               <p className="text-sm md:text-base text-slate-600 leading-relaxed max-w-md md:ml-auto">
-                From Algiers to Douala, Nairobi to Harare, Guangzhou to Abuja &amp; Accra: BesideBanq connects global movers across 150+ settlement corridors.
+                From Nairobi to London, Guangzhou to Lagos, and Douala to Paris: BesideBanq makes moving money across borders simple, fast, and transparent.
               </p>
             </div>
           </div>

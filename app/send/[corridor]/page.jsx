@@ -15,19 +15,19 @@ export default function CorridorPage() {
   const titleMap = {
     'canada-to-nigeria': {
       title: "Send Money from Canada to Nigeria Instantly",
-      sub: "BanqDrop CAD to NGN at zero transfer fees. Settle into any Nigerian bank account in under 10 seconds.",
+      sub: "Send money from Canada to Nigeria with zero transfer fees. Funds arrive directly into any Nigerian bank account in seconds.",
       source: "Canada",
       dest: "Nigeria"
     },
     'uk-to-china': {
       title: "Pay Chinese Suppliers Directly from the UK in CNY",
-      sub: "Just-In-Time currency conversion. Send GBP or stablecoins; suppliers receive CNY directly into Alipay or WeChat Pay.",
+      sub: "Send GBP or US Dollars from the UK. Your Chinese suppliers receive native CNY directly into their Alipay or bank accounts in seconds.",
       source: "United Kingdom",
       dest: "China"
     },
     'us-to-ghana': {
       title: "Send USD to Mobile Money & Banks in Ghana",
-      sub: "Zero fees, low FX markup, and direct payout to MTN MoMo, Vodafone Cash, or Ghanaian bank accounts.",
+      sub: "Zero transfer fees, honest exchange rates, and instant delivery to MTN Mobile Money, Vodafone Cash, or Ghanaian bank accounts.",
       source: "United States",
       dest: "Ghana"
     }

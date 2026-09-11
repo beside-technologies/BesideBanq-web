@@ -46,11 +46,11 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs md:text-sm font-bold"
               style={{ background: 'rgba(44,43,154,0.08)', color: 'var(--brand-primary)', border: '1px solid rgba(44,43,154,0.18)' }}>
               <span className="flex h-2 w-2 rounded-full animate-ping" style={{ background: 'var(--brand-teal)' }} />
-              <span>Next-Gen Diaspora Financial Super-App</span>
+              <span>Global Accounts &amp; Money Movement</span>
               <span style={{ color: 'var(--brand-lavender)' }}>|</span>
               <span className="flex items-center gap-1" style={{ color: 'var(--brand-violet)' }}>
                 <Bot className="w-3.5 h-3.5" style={{ color: 'var(--brand-primary)' }} />
-                Euda AI Powered
+                Euda AI Assistant
               </span>
             </div>
 
@@ -69,11 +69,13 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
 
             {/* Sub-copy */}
             <p className="text-lg md:text-xl max-w-2xl leading-relaxed" style={{ color: 'var(--text-sub)' }}>
-              Move money home with instant{' '}
-              <span className="font-bold" style={{ color: 'var(--text-main)' }}>BanqDrop</span>{' '}
-              via @tag, save in inflation-protected USD, and let{' '}
+              Send money to loved ones instantly with your personal{' '}
+              <span className="font-bold" style={{ color: 'var(--text-main)' }}>@tag</span>, 
+              protect your savings in safe{' '}
+              <span className="font-bold" style={{ color: 'var(--text-main)' }}>US Dollars</span>, 
+              and let{' '}
               <span className="font-bold" style={{ color: 'var(--brand-violet)' }}>Euda AI</span>{' '}
-              manage your finances autonomously.
+              keep your spending and budget on track.
             </p>
 
             {/* @tag Reservation Widget (Pre-Launch) */}
@@ -271,7 +273,7 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
                         <div className="flex justify-between items-center mt-2 pt-2 text-[10px]"
                           style={{ color: 'rgba(255,255,255,0.6)', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
                           <span>Account Details &gt;</span>
-                          <span className="font-mono">USDC Wallet</span>
+                          <span className="font-medium">US Dollar Wallet</span>
                         </div>
                       </div>
 
@@ -283,8 +285,8 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
                           <Zap className="w-4 h-4 text-teal-600" />
                         </div>
                         <div className="flex-1">
-                          <div className="text-[11px] font-bold" style={{ color: 'var(--text-main)' }}>BanqDrop Received</div>
-                          <div className="text-[10px]" style={{ color: 'var(--text-muted)' }}>@amara sent you 100 USDC</div>
+                          <div className="text-[11px] font-bold" style={{ color: 'var(--text-main)' }}>Money Received</div>
+                          <div className="text-[10px]" style={{ color: 'var(--text-muted)' }}>@amara sent you $100.00</div>
                         </div>
                         <span className="text-[9px]" style={{ color: 'var(--text-light)' }}>Just now</span>
                       </div>
@@ -305,11 +307,11 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
                         ))}
                       </div>
 
-                      {/* UMA Address Banner — deep indigo like designs */}
+                      {/* Global @tag banner */}
                       <div className="p-3 rounded-xl text-white"
                         style={{ background: 'linear-gradient(120deg, #2C2B9A 0%, #4B3FD0 100%)' }}>
-                        <div className="text-[11px] font-extrabold mb-0.5" style={{ fontFamily: 'var(--font-heading)' }}>Claim your UMA Address</div>
-                        <div className="text-[9px]" style={{ color: 'rgba(255,255,255,0.7)' }}>Receive in any currency, near-instant</div>
+                        <div className="text-[11px] font-extrabold mb-0.5" style={{ fontFamily: 'var(--font-heading)' }}>Your Global @tag Handle</div>
+                        <div className="text-[9px]" style={{ color: 'rgba(255,255,255,0.7)' }}>Send &amp; receive money using just your username</div>
                       </div>
 
                     </div>

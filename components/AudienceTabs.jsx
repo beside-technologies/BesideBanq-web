@@ -25,12 +25,12 @@ export default function AudienceTabs() {
         <ScrollReveal direction="up" delay={0}>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-8 border-b border-slate-200/80 gap-6 mb-12">
             <div className="space-y-2 max-w-2xl">
-              <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">Product Capabilities</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">Features</span>
               <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
-                Built for individuals &amp; global trade.
+                Built for everyday life and international business.
               </h2>
               <p className="text-base md:text-lg text-slate-600 font-normal">
-                Whether you're sending money to loved ones or settling international supplier invoices, BesideBanq gives you complete financial control.
+                Send money to loved ones, protect your savings, or pay suppliers abroad directly from your phone.
               </p>
             </div>
 
@@ -74,11 +74,11 @@ export default function AudienceTabs() {
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">BanqDrop Instant Send</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Send money instantly to any @tag. Free forever. No bank account numbers or SWIFT codes required.
+                  Send money instantly to any @tag like sending a text message. Free forever. No bank account numbers or sort codes needed.
                 </p>
               </div>
               <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/60 text-xs text-slate-700 font-medium">
-                <span className="font-bold text-[#1D1E81]">@amara</span> sent you 100 USDC via BanqDrop
+                <span className="font-bold text-[#1D1E81]">@amara</span> sent you $100.00 via BanqDrop
               </div>
             </div>
 
@@ -90,12 +90,12 @@ export default function AudienceTabs() {
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">USD Savings</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Protect your wealth from inflation by saving in USD wallets with automated compounding interest.
+                  Protect your hard-earned money from local currency inflation by saving in stable US Dollars with automated interest.
                 </p>
               </div>
               <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/60 text-xs font-bold text-slate-800 flex justify-between">
                 <span>Wealth Protection</span>
-                <span className="text-[#1D1E81] font-extrabold">USD Stable Savings</span>
+                <span className="text-[#1D1E81] font-extrabold">Protected US Dollars</span>
               </div>
             </div>
 
@@ -145,13 +145,13 @@ export default function AudienceTabs() {
               <div className="lg:col-span-6 space-y-6">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-[#1D1E81] text-xs font-bold">
                   <Globe className="w-3.5 h-3.5 text-[#1D1E81]" />
-                  Stablecoin &amp; China CNY Payout Rails
+                  Direct Supplier Payments (China &amp; Global)
                 </div>
                 <h3 className="text-3xl font-extrabold text-slate-900">
-                  Pay Chinese & Global Suppliers Instantly in CNY or Stablecoins.
+                  Pay Chinese and Global Suppliers in Seconds.
                 </h3>
                 <p className="text-slate-600 text-base leading-relaxed">
-                  BesideBanq executes just-in-time currency conversion. UK/US importers pay in stablecoins or local currency, while Chinese suppliers receive native CNY directly into their <strong>Alipay</strong> or bank accounts in seconds.
+                  BesideBanq handles currency conversion automatically. You pay in your local currency or US Dollars, and your Chinese suppliers receive native CNY directly into their <strong>Alipay</strong> or bank accounts in seconds.
                 </p>
 
                 {/* Bank vs BesideBanq Table */}
@@ -164,7 +164,7 @@ export default function AudienceTabs() {
 
                   <div className="grid grid-cols-3 font-semibold items-center text-slate-500 py-1">
                     <span>Traditional Bank Wire</span>
-                    <span className="text-red-500">3–5 Days</span>
+                    <span className="text-red-500">3 to 5 Days</span>
                     <span className="text-red-500">$35 + 3% Markup</span>
                   </div>
 
@@ -186,7 +186,7 @@ export default function AudienceTabs() {
                         <Vote className="w-5 h-5" />
                       </div>
                       <div>
-                        <div className="font-extrabold text-base text-white">Buddy Democratic Escrow</div>
+                        <div className="font-extrabold text-base text-white">Buddy Group Pool (Democratic Vote)</div>
                         <div className="text-xs text-slate-400">Supplier Payment Pool #402</div>
                       </div>
                     </div>
@@ -196,13 +196,13 @@ export default function AudienceTabs() {
                   </div>
 
                   <div className="text-xs text-slate-300">
-                    Amount: <strong className="text-white text-sm font-bold">$15,000.00 USDC</strong> → Guangzhou Supplier (CNY)
+                    Amount: <strong className="text-white text-sm font-bold">$15,000.00 USD</strong> → Guangzhou Supplier (CNY)
                   </div>
 
                   {/* Member Vote List */}
                   <div className="space-y-3">
                     <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                      Democratic Vote Status (100% Unanimous Required):
+                      Democratic Group Approval (All Partners Must Agree):
                     </div>
 
                     {/* Member 1 */}
@@ -261,7 +261,7 @@ export default function AudienceTabs() {
                   <div className={`p-3 rounded-xl text-center text-xs font-bold ${
                     isUnanimous ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40' : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
                   }`}>
-                    {isUnanimous ? '100% Unanimous Approval: Transfer Executed to Supplier!' : 'Waiting for 100% Unanimous Approval to release funds.'}
+                    {isUnanimous ? 'All partners approved! Transfer sent directly to supplier.' : 'Waiting for all 3 partners to vote YES before money can move.'}
                   </div>
 
                 </div>

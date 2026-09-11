@@ -57,7 +57,7 @@ export default function Footer() {
               />
             </a>
             <p className="text-xs leading-relaxed max-w-xs" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-body)' }}>
-              Helping people live a better life, globally. The financial super-app built to empower the global African diaspora and anyone moving money across borders.
+              Helping you send, save, and manage money globally. Built for families, professionals, and businesses moving money across borders.
             </p>
 
             {/* Social links */}
@@ -88,12 +88,12 @@ export default function Footer() {
             <div className="text-[11px] font-bold uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.3)' }}>Products</div>
             <ul className="space-y-2.5 text-xs font-medium">
               {[
-                ['BanqDrop', '#features'],
-                ['Euda Companion', '#euda'],
-                ['Buddy Escrow', '#audience'],
-                ['USD Savings', '#calculator'],
-                ['China CNY Rails', '#calculator'],
-                ['eSIM & Gift Cards', '#esim'],
+                ['Instant Send (@tag)', '#audience'],
+                ['Euda AI Companion', '#euda'],
+                ['Buddy Group Pool', '#audience'],
+                ['Protected USD Savings', '#audience'],
+                ['China & Global Supplier Pay', '#calculator'],
+                ['Travel eSIM & Gift Cards', '#esim'],
               ].map(([label, href]) => (
                 <li key={label}>
                   <a href={href} className="transition-colors hover:text-white" style={{ color: 'rgba(255,255,255,0.5)' }}>
@@ -111,9 +111,9 @@ export default function Footer() {
               {[
                 ['About BesideBanq', '#audience'],
                 ['Contact Us', '/contact'],
-                ['Careers', '#audience'],
-                ['Press & Brand', '#audience'],
-                ['Corridor Rates', '#calculator'],
+                ['Community Stories', '#features'],
+                ['Security Standards', '#security'],
+                ['Live Corridor Rates', '#calculator'],
                 ['Blog', '#'],
               ].map(([label, href]) => (
                 <li key={label}>

@@ -24,12 +24,12 @@ export default function ScanTransferDemo() {
       title: "Handwritten Note",
       icon: Edit3,
       fileType: "Handwritten Scan",
-      rawText: `"Transfer 150 USDC for school fees to @kofi_edu"`,
+      rawText: `"Transfer $150 for school fees to @kofi_edu"`,
       parsed: {
         payee: "Kofi Edu (@kofi_edu)",
-        bank: "BesideBanq BanqDrop",
+        bank: "BesideBanq @tag Transfer",
         account: "@kofi_edu",
-        amount: "150.00 USDC"
+        amount: "$150.00 USD"
       }
     },
     {
@@ -39,9 +39,9 @@ export default function ScanTransferDemo() {
       rawText: `INVOICE #4901: GuangZhou Electronics Co. Ltd. Total: ¥12,500 CNY. Alipay: supplier_gz@alipay.cn`,
       parsed: {
         payee: "GuangZhou Electronics Co.",
-        bank: "Alipay Direct Rail (China)",
+        bank: "Alipay Direct (China)",
         account: "supplier_gz@alipay.cn",
-        amount: "12,500 CNY (~ $1,720 USDC)"
+        amount: "12,500 CNY (~ $1,720 USD)"
       }
     }
   ];
@@ -57,13 +57,13 @@ export default function ScanTransferDemo() {
           <div className="max-w-3xl mb-12 space-y-3">
             <div className="flex items-center gap-2 text-indigo-600 font-bold text-xs uppercase tracking-widest">
               <Scan className="w-4 h-4 text-indigo-600" />
-              <span>Euda Smart OCR Engine</span>
+              <span>Smart Document &amp; Screenshot Reader</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
-              Drop any chat screenshot, note, or invoice.
+              Drop any chat screenshot, note, or bill.
             </h2>
             <p className="text-base md:text-lg text-slate-600 leading-relaxed font-normal">
-              Euda automatically parses bank numbers, handles, payees, and amounts from images or text, populating your transfer form instantly with 99.9% accuracy.
+              Euda reads bank names, account numbers, handles, and amounts directly from your screenshot or message. It fills in the transfer form so you never have to retype details by hand.
             </p>
           </div>
         </ScrollReveal>
@@ -119,10 +119,10 @@ export default function ScanTransferDemo() {
               <div className="flex items-center justify-between border-b border-white/10 pb-3">
                 <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
                   <CheckCircle2 className="w-4 h-4" />
-                  Euda OCR Parsed Data
+                  Details Found Automatically
                 </div>
                 <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-bold">
-                  99.9% Confidence
+                  Verified &amp; Ready
                 </span>
               </div>
 
@@ -132,11 +132,11 @@ export default function ScanTransferDemo() {
                   <strong className="text-white font-bold">{active.parsed.payee}</strong>
                 </div>
                 <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex justify-between">
-                  <span className="text-slate-400">Payout Rail / Bank:</span>
+                  <span className="text-slate-400">Bank / Destination:</span>
                   <strong className="text-indigo-300 font-bold">{active.parsed.bank}</strong>
                 </div>
                 <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex justify-between">
-                  <span className="text-slate-400">Account / Handle:</span>
+                  <span className="text-slate-400">Account / @tag:</span>
                   <strong className="text-white font-mono font-bold">{active.parsed.account}</strong>
                 </div>
                 <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex justify-between">

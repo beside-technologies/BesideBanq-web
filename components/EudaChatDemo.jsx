@@ -18,7 +18,7 @@ export default function EudaChatDemo() {
     },
     {
       user: "How fast can I send money to Nigeria today?",
-      euda: "With BanqDrop via stablecoin rails, your transfer to @amara or local NGN bank accounts settles in under 10 seconds with zero transfer fees!"
+      euda: "Transfers to @amara or any Nigerian bank account arrive in under 10 seconds with zero transfer fees!"
     }
   ];
 
@@ -33,15 +33,15 @@ export default function EudaChatDemo() {
             <div className="space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 text-purple-700 text-xs font-bold border border-purple-100">
               <Bot className="w-4 h-4 text-purple-600" />
-              <span>Meet Euda: Your AI Financial Companion</span>
+              <span>Meet Euda: Your Smart Money Assistant</span>
             </div>
 
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              An AI agent rooted in <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">Eudaimonia</span>.
+              Manage your money with a <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">helpful guide</span>.
             </h2>
 
             <p className="text-base md:text-lg text-slate-600 leading-relaxed font-normal">
-              Named after the Greek concept of human flourishing and living a good life, <strong>Euda</strong> is your warm, empathetic financial partner that celebrates your life choices while managing your budget autonomously.
+              <strong>Euda</strong> helps you stay in control of your spending without feeling guilty. Get friendly tips when you overspend, automate your savings goals, and move money simply by chatting.
             </p>
 
             <div className="space-y-3 pt-2">
@@ -49,19 +49,19 @@ export default function EudaChatDemo() {
                 <div className="w-7 h-7 rounded-full bg-indigo-50 border border-indigo-100 text-[#1D1E81] flex items-center justify-center">
                   <Check className="w-4 h-4 text-[#1D1E81]" />
                 </div>
-                <span>Empowering Financial Advice &amp; Coaching</span>
+                <span>Helpful spending tips without judgment</span>
               </div>
               <div className="flex items-center gap-3 text-sm font-semibold text-slate-800">
                 <div className="w-7 h-7 rounded-full bg-indigo-50 border border-indigo-100 text-[#1D1E81] flex items-center justify-center">
                   <Check className="w-4 h-4 text-[#1D1E81]" />
                 </div>
-                <span>Autonomous Budget Adjustments &amp; Smart Savings Vaults</span>
+                <span>Automated savings goals for family, school, and travel</span>
               </div>
               <div className="flex items-center gap-3 text-sm font-semibold text-slate-800">
                 <div className="w-7 h-7 rounded-full bg-indigo-50 border border-indigo-100 text-[#1D1E81] flex items-center justify-center">
                   <Check className="w-4 h-4 text-[#1D1E81]" />
                 </div>
-                <span>Instant Natural Language Money Transfers</span>
+                <span>Send money to any contact using everyday chat messages</span>
               </div>
             </div>
           </div>

@@ -17,7 +17,7 @@ export default function FeeCalculator() {
       rate: 1120.50,
       fee: 0.00,
       speed: "10 Seconds",
-      rail: "NIBSS Instant Bank Rail / BanqDrop"
+      rail: "Direct to Nigerian Bank Accounts / @tag"
     },
     'gbp-cny': {
       sourceName: "United Kingdom (GBP)",
@@ -27,7 +27,7 @@ export default function FeeCalculator() {
       rate: 9.25,
       fee: 0.00,
       speed: "15 Seconds",
-      rail: "Alipay Direct Supplier Rail"
+      rail: "Direct to Alipay & Chinese Bank Accounts"
     },
     'usd-ghs': {
       sourceName: "United States (USD)",
@@ -37,7 +37,7 @@ export default function FeeCalculator() {
       rate: 15.40,
       fee: 0.00,
       speed: "12 Seconds",
-      rail: "MTN MoMo & GHS Partner Rail"
+      rail: "Direct to MTN Mobile Money & Banks"
     },
     'eur-kes': {
       sourceName: "Europe (EUR)",
@@ -47,7 +47,7 @@ export default function FeeCalculator() {
       rate: 142.80,
       fee: 0.00,
       speed: "8 Seconds",
-      rail: "Safaricom M-PESA Direct Rail"
+      rail: "Direct to Safaricom M-PESA"
     },
     'eur-xaf': {
       sourceName: "Europe (EUR)",
@@ -57,7 +57,7 @@ export default function FeeCalculator() {
       rate: 655.95,
       fee: 0.00,
       speed: "14 Seconds",
-      rail: "Central Africa Orange Money Rail"
+      rail: "Direct to Orange & MTN Mobile Money"
     }
   };
 
@@ -73,17 +73,17 @@ export default function FeeCalculator() {
           <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 border-b border-slate-200/80 gap-4 mb-12">
             <div className="space-y-2 max-w-2xl">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">Rate & Rail Calculator</span>
+                <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">Live Rate &amp; Speed Calculator</span>
                 <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold inline-flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" /> Live Mid-Market
                 </span>
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
-                Zero hidden fees. Near-instant settlement.
+                Clear exchange rates. Delivered in seconds.
               </h2>
             </div>
             <p className="text-base text-slate-600 max-w-md font-normal">
-              Direct API settlement across NIBSS, M-PESA, Alipay, and Orange Money rails with zero transfer markup.
+              Real-time exchange rates with direct payouts to bank accounts and mobile wallets in Nigeria, Ghana, Kenya, China, and Cameroon.
             </p>
           </div>
         </ScrollReveal>
@@ -100,7 +100,7 @@ export default function FeeCalculator() {
                 corridor === 'cad-ngn' ? 'bg-[#1D1E81] text-white border-[#1D1E81] shadow-md' : 'bg-slate-50 text-slate-700 border-slate-200'
               }`}
             >
-              CAD → NGN (NIBSS)
+              CAD → NGN (Nigeria)
             </button>
             <button
               onClick={() => setCorridor('gbp-cny')}
@@ -108,7 +108,7 @@ export default function FeeCalculator() {
                 corridor === 'gbp-cny' ? 'bg-[#1D1E81] text-white border-[#1D1E81] shadow-md' : 'bg-slate-50 text-slate-700 border-slate-200'
               }`}
             >
-              GBP → CNY (Alipay)
+              GBP → CNY (China)
             </button>
             <button
               onClick={() => setCorridor('usd-ghs')}
@@ -116,7 +116,7 @@ export default function FeeCalculator() {
                 corridor === 'usd-ghs' ? 'bg-[#1D1E81] text-white border-[#1D1E81] shadow-md' : 'bg-slate-50 text-slate-700 border-slate-200'
               }`}
             >
-              USD → GHS (MoMo)
+              USD → GHS (Ghana)
             </button>
             <button
               onClick={() => setCorridor('eur-kes')}
@@ -124,7 +124,7 @@ export default function FeeCalculator() {
                 corridor === 'eur-kes' ? 'bg-[#1D1E81] text-white border-[#1D1E81] shadow-md' : 'bg-slate-50 text-slate-700 border-slate-200'
               }`}
             >
-              EUR → KES (M-PESA)
+              EUR → KES (Kenya)
             </button>
             <button
               onClick={() => setCorridor('eur-xaf')}
@@ -132,7 +132,7 @@ export default function FeeCalculator() {
                 corridor === 'eur-xaf' ? 'bg-[#1D1E81] text-white border-[#1D1E81] shadow-md' : 'bg-slate-50 text-slate-700 border-slate-200'
               }`}
             >
-              EUR → XAF (Central Africa)
+              EUR → XAF (Cameroon)
             </button>
           </div>
 
@@ -206,7 +206,7 @@ export default function FeeCalculator() {
             </div>
 
             <div className="p-3 rounded-xl bg-indigo-50/60 border border-indigo-100 space-y-1">
-              <div className="text-indigo-600 font-bold">API Partner Rail:</div>
+              <div className="text-indigo-600 font-bold">Delivered Via:</div>
               <div className="font-bold text-indigo-950 text-xs truncate">
                 {active.rail}
               </div>

@@ -14,9 +14,9 @@ export default function Navbar({ isPreLaunch, onOpenWaitlistModal }) {
   }, []);
 
   const navLinks = [
-    { label: 'Products',       href: '#features' },
-    { label: 'Audience',       href: '#audience' },
-    { label: 'Euda',            href: '#euda',       accent: true },
+    { label: 'How It Works',   href: '#audience' },
+    { label: 'Community',      href: '#features' },
+    { label: 'Euda AI',        href: '#euda',       accent: true },
     { label: 'Rates & Speeds', href: '#calculator' },
     { label: 'Security',       href: '#security' },
     { label: 'Contact',        href: '/contact' },
