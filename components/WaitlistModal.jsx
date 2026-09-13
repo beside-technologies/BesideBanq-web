@@ -236,6 +236,17 @@ export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
               </div>
             </div>
 
+            {/* Direct WhatsApp Handoff CTA */}
+            <a
+              href={`https://wa.me/2348098765432?text=${encodeURIComponent(`Hi Besidebanq! I want to claim my tag @${userTag}`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl shadow-lg shadow-emerald-600/30 transition-all transform hover:-translate-y-0.5 text-center"
+            >
+              <span>Activate @{userTag || 'tag'} on WhatsApp Now</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
+
             <button
               onClick={onClose}
               className="btn-secondary w-full py-3 text-sm rounded-xl font-bold"

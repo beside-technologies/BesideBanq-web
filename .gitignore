@@ -7,3 +7,10 @@ out
 dist
 .vercel
 designs/
+
+# Documentation & confidential files
+*.pdf
+PRD.md
+Besidebanq_Strategic_Architecture_and_Build_Plan.md
+generate_master_pdf.js
+
