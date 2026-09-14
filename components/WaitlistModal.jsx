@@ -9,6 +9,10 @@ export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState(['', '', '', '', '', '']);
   const [copied, setCopied] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+  const [devOtpHint, setDevOtpHint] = useState('');
+  const [verifiedData, setVerifiedData] = useState(null);
 
   useEffect(() => {
     if (reservedTag) {
@@ -18,10 +22,37 @@ export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
 
   if (!isOpen) return null;
 
-  const handleEmailSubmit = (e) => {
+  const handleEmailSubmit = async (e) => {
     e.preventDefault();
-    if (email) {
+    if (!email || !userTag) return;
+    setIsLoading(true);
+    setErrorMsg('');
+    try {
+      const res = await fetch('/api/v1/waitlist/send-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim(), user_tag: userTag.trim() })
+      });
+      let data = {};
+      const text = await res.text();
+      try {
+        data = JSON.parse(text);
+      } catch (_) {
+        data = { error: text };
+      }
+      if (!res.ok) {
+        setErrorMsg(data.error || 'Failed to send OTP. Please check your email.');
+        return;
+      }
+      if (data.dev_otp) {
+        setDevOtpHint(data.dev_otp);
+        setOtp(data.dev_otp.split(''));
+      }
       setStep(2);
+    } catch (err) {
+      setErrorMsg('Network error connecting to BesideBanq service. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -38,13 +69,43 @@ export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
     }
   };
 
-  const handleOtpVerify = (e) => {
+  const handleOtpVerify = async (e) => {
     e.preventDefault();
-    setStep(3);
+    const code = otp.join('');
+    if (code.length < 6) {
+      setErrorMsg('Please enter the 6-digit verification code.');
+      return;
+    }
+    setIsLoading(true);
+    setErrorMsg('');
+    try {
+      const res = await fetch('/api/v1/waitlist/verify-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim(), user_tag: userTag.trim(), otp: code })
+      });
+      let data = {};
+      const text = await res.text();
+      try {
+        data = JSON.parse(text);
+      } catch (_) {
+        data = { error: text };
+      }
+      if (!res.ok) {
+        setErrorMsg(data.error || 'Invalid or expired verification code.');
+        return;
+      }
+      setVerifiedData(data);
+      setStep(3);
+    } catch (err) {
+      setErrorMsg('Network error verifying code. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleCopyLink = () => {
-    const link = `https://besidebanq.com/claim?ref=${userTag || 'user'}`;
+    const link = verifiedData?.referral_link || `https://besidebanq.com/claim?ref=${userTag || 'user'}`;
     navigator.clipboard.writeText(link);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
@@ -118,11 +179,18 @@ export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
                 </label>
               </div>
 
+              {errorMsg && (
+                <div className="p-3 text-xs font-semibold text-rose-600 bg-rose-50 border border-rose-200 rounded-xl">
+                  {errorMsg}
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="btn-primary w-full py-3.5 text-base rounded-xl shadow-indigo-600/30"
+                disabled={isLoading}
+                className="btn-primary w-full py-3.5 text-base rounded-xl shadow-indigo-600/30 disabled:opacity-60"
               >
-                <span>Send Verification Code</span>
+                <span>{isLoading ? 'Sending Verification Code...' : 'Send Verification Code'}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>
@@ -148,6 +216,18 @@ export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
               </p>
             </div>
 
+            {devOtpHint && (
+              <div className="p-3 text-xs font-mono text-indigo-800 bg-indigo-50 border border-indigo-200 rounded-xl text-center">
+                💡 Dev Test OTP: <strong className="tracking-widest font-extrabold text-sm">{devOtpHint}</strong>
+              </div>
+            )}
+
+            {errorMsg && (
+              <div className="p-3 text-xs font-semibold text-rose-600 bg-rose-50 border border-rose-200 rounded-xl">
+                {errorMsg}
+              </div>
+            )}
+
             <form onSubmit={handleOtpVerify} className="space-y-6">
               <div className="flex justify-center gap-2 sm:gap-3">
                 {otp.map((digit, idx) => (
@@ -165,15 +245,16 @@ export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
 
               <button
                 type="submit"
-                className="btn-primary w-full py-3.5 text-base rounded-xl shadow-indigo-600/30"
+                disabled={isLoading}
+                className="btn-primary w-full py-3.5 text-base rounded-xl shadow-indigo-600/30 disabled:opacity-60"
               >
-                <span>Verify &amp; Confirm @{userTag || 'tag'}</span>
+                <span>{isLoading ? 'Verifying...' : `Verify & Confirm @${userTag || 'tag'}`}</span>
                 <CheckCircle2 className="w-4 h-4" />
               </button>
             </form>
 
             <div className="text-center text-xs text-slate-500">
-              Didn't receive code? <button onClick={() => alert("Resent 6-digit code to email!")} className="text-indigo-600 font-bold hover:underline">Resend Email OTP</button>
+              Didn't receive code? <button onClick={handleEmailSubmit} className="text-indigo-600 font-bold hover:underline">Resend Email OTP</button>
             </div>
           </div>
         )}
@@ -197,8 +278,8 @@ export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
             {/* Rank Box */}
             <div className="bg-gradient-to-br from-[#1D1E81] via-[#232288] to-[#4F46E5] text-white p-5 rounded-2xl text-center space-y-1 shadow-lg">
               <div className="text-xs uppercase tracking-wider font-semibold text-indigo-200">Your Waitlist Position</div>
-              <div className="text-4xl font-black tracking-tight text-white">#342</div>
-              <div className="text-xs text-indigo-100">Out of 12,482 members</div>
+              <div className="text-4xl font-black tracking-tight text-white">#{verifiedData?.position || 342}</div>
+              <div className="text-xs text-indigo-100">Out of {(verifiedData?.total_members || 12486).toLocaleString()} members</div>
             </div>
 
             {/* Referral Link Box */}
@@ -210,7 +291,7 @@ export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
                 <input
                   type="text"
                   readOnly
-                  value={`https://besidebanq.com/claim?ref=${userTag || 'user'}`}
+                  value={verifiedData?.referral_link || `https://besidebanq.com/claim?ref=${userTag || 'user'}`}
                   className="w-full bg-transparent text-xs font-mono text-slate-700 focus:outline-none px-2"
                 />
                 <button
@@ -238,7 +319,7 @@ export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
 
             {/* Direct WhatsApp Handoff CTA */}
             <a
-              href={`https://wa.me/2348098765432?text=${encodeURIComponent(`Hi Besidebanq! I want to claim my tag @${userTag}`)}`}
+              href={verifiedData?.whatsapp_url || `https://wa.me/2348098765432?text=${encodeURIComponent(`Hi BesideBanq! I want to claim my tag @${userTag}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl shadow-lg shadow-emerald-600/30 transition-all transform hover:-translate-y-0.5 text-center"
@@ -255,6 +336,8 @@ export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
             </button>
           </div>
         )}
+
+
 
       </div>
     </div>

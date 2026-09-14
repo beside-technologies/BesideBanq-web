@@ -1,22 +1,29 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Bot, Check, ArrowRight, ShieldCheck, Clock, Send, CreditCard, BatteryCharging, Wifi, Zap, Smartphone } from 'lucide-react';
+import { Bot, Check, ArrowRight, ShieldCheck, Clock, Send, CreditCard, BatteryCharging, Wifi, Zap, Smartphone, Receipt } from 'lucide-react';
+import ReceiptModal from './ReceiptModal';
 
 export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }) {
   const [handleInput, setHandleInput] = useState('');
   const [isChecking, setIsChecking] = useState(false);
   const [isAvailable, setIsAvailable] = useState(null);
+  const [showDemoReceipt, setShowDemoReceipt] = useState(false);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = async (e) => {
     const val = e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, '');
     setHandleInput(val);
     if (val.length >= 3) {
       setIsChecking(true);
-      setTimeout(() => {
-        setIsChecking(false);
+      try {
+        const res = await fetch(`/api/v1/waitlist/check-tag?tag=${encodeURIComponent(val)}`);
+        const data = await res.json();
+        setIsAvailable(data.available);
+      } catch (err) {
         setIsAvailable(true);
-      }, 300);
+      } finally {
+        setIsChecking(false);
+      }
     } else {
       setIsAvailable(null);
     }
@@ -25,6 +32,10 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
   const handleClaimSubmit = (e) => {
     e.preventDefault();
     if (!handleInput || handleInput.length < 3) return;
+    if (isAvailable === false) {
+      alert(`@${handleInput} is already registered! Please choose an available handle.`);
+      return;
+    }
     onReservedTag(handleInput);
     onOpenWaitlistModal();
   };
@@ -107,15 +118,27 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
                         <div className="w-4 h-4 border-2 border-t-transparent rounded-full animate-spin flex-shrink-0"
                           style={{ borderColor: 'var(--brand-primary)' }} />
                       )}
-                      {isAvailable && !isChecking && (
+                      {isAvailable === true && !isChecking && (
                         <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold whitespace-nowrap"
                           style={{ background: 'rgba(10,236,209,0.12)', color: '#00967D', border: '1px solid rgba(10,236,209,0.3)' }}>
                           <Check className="w-3 h-3" /> Available
                         </span>
                       )}
+                      {isAvailable === false && !isChecking && (
+                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold whitespace-nowrap"
+                          style={{ background: 'rgba(239,68,68,0.12)', color: '#DC2626', border: '1px solid rgba(239,68,68,0.3)' }}>
+                          Claimed
+                        </span>
+                      )}
                     </div>
-                    <button type="submit" className="btn-primary text-sm px-7 py-3.5 rounded-full whitespace-nowrap flex-shrink-0">
-                      <span>Claim @tag</span>
+                    <button 
+                      type="submit" 
+                      disabled={isAvailable === false || isChecking}
+                      className={`text-sm px-7 py-3.5 rounded-full whitespace-nowrap flex-shrink-0 flex items-center gap-2 font-bold transition-all ${
+                        isAvailable === false ? 'bg-slate-200 text-slate-500 cursor-not-allowed' : 'btn-primary'
+                      }`}
+                    >
+                      <span>{isAvailable === false ? 'Tag Taken' : 'Claim @tag'}</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -144,18 +167,29 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
                         <div className="w-4 h-4 border-2 border-t-transparent rounded-full animate-spin flex-shrink-0"
                           style={{ borderColor: 'var(--brand-primary)' }} />
                       )}
-                      {isAvailable && !isChecking && (
+                      {isAvailable === true && !isChecking && (
                         <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold whitespace-nowrap"
                           style={{ background: 'rgba(10,236,209,0.12)', color: '#00967D', border: '1px solid rgba(10,236,209,0.3)' }}>
                           <Check className="w-3 h-3" /> Available
                         </span>
                       )}
+                      {isAvailable === false && !isChecking && (
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold whitespace-nowrap"
+                          style={{ background: 'rgba(239,68,68,0.12)', color: '#DC2626', border: '1px solid rgba(239,68,68,0.3)' }}>
+                          Claimed
+                        </span>
+                      )}
                     </div>
                     {/* Button row — full width, no extra margin */}
-                    <button type="submit"
-                      className="w-full flex items-center justify-center gap-2 py-4 text-base font-bold text-white"
-                      style={{ background: 'var(--gradient-primary)', fontFamily: 'var(--font-heading)' }}>
-                      <span>Claim @tag</span>
+                    <button 
+                      type="submit"
+                      disabled={isAvailable === false || isChecking}
+                      className="w-full flex items-center justify-center gap-2 py-4 text-base font-bold text-white transition-all disabled:opacity-75 disabled:cursor-not-allowed"
+                      style={{ 
+                        background: isAvailable === false ? '#94A3B8' : 'var(--gradient-primary)', 
+                        fontFamily: 'var(--font-heading)' 
+                      }}>
+                      <span>{isAvailable === false ? 'Tag Taken' : 'Claim @tag'}</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -174,6 +208,15 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
                     <ShieldCheck className="w-3.5 h-3.5" />
                     <span>Instant Email OTP Verification</span>
                   </div>
+                  <button
+                    type="button"
+                    onClick={() => setShowDemoReceipt(true)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition-all hover:scale-105"
+                    style={{ background: 'rgba(99,102,241,0.08)', color: '#4338CA', border: '1px solid rgba(99,102,241,0.25)' }}
+                  >
+                    <Receipt className="w-3.5 h-3.5 text-indigo-600" />
+                    <span>View Sample Proof of Payment (PDF &amp; Image)</span>
+                  </button>
                 </div>
 
                 {/* Social proof */}
@@ -323,6 +366,12 @@ export default function Hero({ isPreLaunch, onOpenWaitlistModal, onReservedTag }
           </div>
         </div>
       </div>
+
+      {/* Proof of Payment Demo Modal */}
+      <ReceiptModal 
+        isOpen={showDemoReceipt} 
+        onClose={() => setShowDemoReceipt(false)} 
+      />
     </section>
   );
 }
