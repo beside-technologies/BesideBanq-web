@@ -319,7 +319,7 @@ export default function WaitlistModal({ isOpen, onClose, reservedTag }) {
 
             {/* Direct WhatsApp Handoff CTA */}
             <a
-              href={verifiedData?.whatsapp_url || `https://wa.me/2348098765432?text=${encodeURIComponent(`Hi BesideBanq! I want to claim my tag @${userTag}`)}`}
+              href={verifiedData?.whatsapp_url || `https://wa.me/15551521651?text=${encodeURIComponent(`Hi BesideBanq! I want to claim my tag @${userTag}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl shadow-lg shadow-emerald-600/30 transition-all transform hover:-translate-y-0.5 text-center"

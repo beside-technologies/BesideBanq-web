@@ -28,7 +28,7 @@ export default function ReceiptCard({ receiptData, showActions = true, onAfterEx
     recipient_bank: "Access Bank",
     recipient_account: "0123456789",
     narration: "Merchandise invoice #884",
-    provider: "STERLLO",
+    provider: "BESIDEBANQ_CORE",
     timestamp: new Date().toISOString(),
     session_id: "BBNQ-7A9B-4C2D"
   };
@@ -205,9 +205,9 @@ export default function ReceiptCard({ receiptData, showActions = true, onAfterEx
       ctx.setLineDash([]);
 
       ctx.textAlign = 'center';
-      ctx.fillStyle = '#007A68';
-      ctx.font = 'bold 11px sans-serif';
-      ctx.fillText('🔒 Cryptographically sealed & verified by BesideBanq Core Ledger', width / 2, height - 80);
+      ctx.fillStyle = '#94A3B8';
+      ctx.font = '600 8.5px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('CRYPTOGRAPHICALLY SEALED & VERIFIED BY BESIDEBANQ CORE LEDGER', width / 2, height - 85);
 
       canvas.toBlob(async (blob) => {
         if (!blob) {
@@ -419,15 +419,11 @@ export default function ReceiptCard({ receiptData, showActions = true, onAfterEx
 
         </div>
 
-        {/* ── Cryptographic Security Seal ───────────────────────────────── */}
-        <div className="p-3 rounded-xl flex items-center justify-center gap-2 text-center text-xs font-semibold"
-          style={{
-            background: 'rgba(10,236,209,0.06)',
-            border: '1px solid rgba(10,236,209,0.25)',
-            color: '#007A68'
-          }}>
-          <ShieldCheck className="w-4 h-4 flex-shrink-0" style={{ color: '#00967D' }} />
-          <span>Cryptographically sealed &amp; verified by BesideBanq Core Ledger</span>
+        {/* Micro Security Stamp */}
+        <div className="pt-2 text-center" style={{ borderTop: '1px dashed rgba(44,43,154,0.08)' }}>
+          <p className="text-[8px] sm:text-[8.5px] uppercase tracking-widest font-semibold text-slate-400">
+            Cryptographically sealed &amp; verified by BesideBanq Core Ledger
+          </p>
         </div>
 
       </div>
