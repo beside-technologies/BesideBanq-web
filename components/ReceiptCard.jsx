@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import { 
   CheckCircle2, Share2, Download, Copy, ShieldCheck, 
-  User, Building2, Calendar, Hash, Receipt, Check, ArrowUpRight
+  User, Building2, Calendar, Hash, Receipt, Check, ArrowUpRight, FileText
 } from 'lucide-react';
 
 export default function ReceiptCard({ receiptData, showActions = true, onAfterExport }) {
@@ -103,16 +103,37 @@ export default function ReceiptCard({ receiptData, showActions = true, onAfterEx
       ctx.roundRect(30, 30, width - 60, 8, [24, 24, 0, 0]);
       ctx.fill();
 
-      // BesideBanq Wordmark in Canvas
-      ctx.fillStyle = '#2A238C';
-      ctx.font = 'bold 24px -apple-system, BlinkMacSystemFont, "Outfit", sans-serif';
-      ctx.fillText('Beside', 60, 82);
-      ctx.fillStyle = '#5149D0';
-      ctx.fillText('Banq', 138, 82);
+      // Real BesideBanq Brand Logo in Canvas
+      const loadLogo = () => new Promise((resolve) => {
+        const domImg = cardRef.current?.querySelector('img[alt="BesideBanq"]') || cardRef.current?.querySelector('img');
+        if (domImg && domImg.complete && domImg.naturalWidth > 0) {
+          return resolve(domImg);
+        }
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => resolve(img);
+        img.onerror = () => resolve(null);
+        img.src = '/besidebanq-logo.svg';
+      });
+
+      const logoImg = await loadLogo();
+      if (logoImg) {
+        // Official brand logo (aspect ratio: 335 / 100 = 3.35)
+        const logoH = 32;
+        const logoW = logoH * 3.35;
+        ctx.drawImage(logoImg, 60, 64, logoW, logoH);
+      } else {
+        // Fallback text if logo asset fails to load
+        ctx.fillStyle = '#2A238C';
+        ctx.font = 'bold 24px -apple-system, BlinkMacSystemFont, "Outfit", sans-serif';
+        ctx.fillText('Beside', 60, 82);
+        ctx.fillStyle = '#5149D0';
+        ctx.fillText('Banq', 138, 82);
+      }
 
       ctx.fillStyle = '#64748B';
       ctx.font = '500 12px "Plus Jakarta Sans", sans-serif';
-      ctx.fillText('Official Proof of Payment', 60, 102);
+      ctx.fillText('Official Proof of Payment', 60, 112);
 
       // Status Pill
       ctx.fillStyle = 'rgba(10, 236, 209, 0.12)';
@@ -192,6 +213,10 @@ export default function ReceiptCard({ receiptData, showActions = true, onAfterEx
           : 'Instant Funds Transfer';
       drawRow('Payment Rail', railName);
       drawRow('BesideBanq Fee', `${symbol}${feeFormatted}`);
+      if (data.narration) {
+        const narr = data.narration.length > 36 ? data.narration.slice(0, 34) + '…' : data.narration;
+        drawRow('Narration', narr);
+      }
       drawRow('Reference', data.reference);
       drawRow('Audit Session', data.session_id);
 
@@ -388,6 +413,18 @@ export default function ReceiptCard({ receiptData, showActions = true, onAfterEx
             <span className="font-semibold" style={{ color: 'var(--text-muted)' }}>BesideBanq Fee</span>
             <span className="font-bold" style={{ color: 'var(--text-main)' }}>{symbol}{feeFormatted}</span>
           </div>
+
+          {/* Narration */}
+          {data.narration && (
+            <div className="flex items-start justify-between">
+              <span className="font-semibold flex items-center gap-1.5" style={{ color: 'var(--text-muted)' }}>
+                <FileText className="w-3.5 h-3.5 text-slate-400" /> Narration
+              </span>
+              <span className="text-right font-medium max-w-[220px] sm:max-w-[280px] break-words" style={{ color: 'var(--text-main)' }}>
+                {data.narration}
+              </span>
+            </div>
+          )}
 
           {/* Reference */}
           <div className="flex items-center justify-between pt-2"
