@@ -103,7 +103,7 @@ export default function ReceiptCard({ receiptData, showActions = true, onAfterEx
       ctx.roundRect(30, 30, width - 60, 8, [24, 24, 0, 0]);
       ctx.fill();
 
-      // Real BesideBanq Brand Logo in Canvas
+      // Assets for Canvas: Brand Logo and Security Watermark Emblem
       const loadLogo = () => new Promise((resolve) => {
         const domImg = cardRef.current?.querySelector('img[alt="BesideBanq"]') || cardRef.current?.querySelector('img');
         if (domImg && domImg.complete && domImg.naturalWidth > 0) {
@@ -116,7 +116,30 @@ export default function ReceiptCard({ receiptData, showActions = true, onAfterEx
         img.src = '/besidebanq-logo.svg';
       });
 
-      const logoImg = await loadLogo();
+      const loadEmblem = () => new Promise((resolve) => {
+        const domEmblem = cardRef.current?.querySelector('img[alt="Security Watermark"]') || cardRef.current?.querySelector('img[src="/logo.png"]');
+        if (domEmblem && domEmblem.complete && domEmblem.naturalWidth > 0) {
+          return resolve(domEmblem);
+        }
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => resolve(img);
+        img.onerror = () => resolve(null);
+        img.src = '/logo.png';
+      });
+
+      const [logoImg, emblemImg] = await Promise.all([loadLogo(), loadEmblem()]);
+
+      // Central Security Watermark in Canvas
+      if (emblemImg) {
+        ctx.save();
+        ctx.globalAlpha = 0.045;
+        const markSize = 250;
+        ctx.translate(width / 2, (height / 2) + 20);
+        ctx.drawImage(emblemImg, -markSize / 2, -markSize / 2, markSize, markSize);
+        ctx.restore();
+      }
+
       if (logoImg) {
         // Official brand logo (aspect ratio: 335 / 100 = 3.35)
         const logoH = 32;
@@ -288,7 +311,7 @@ export default function ReceiptCard({ receiptData, showActions = true, onAfterEx
       : 'Instant Transfer';
 
   return (
-    <div className="w-full bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col"
+    <div className="w-full bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col relative"
       style={{
         border: '1.5px solid rgba(44,43,154,0.12)',
         boxShadow: '0 20px 48px rgba(44,43,154,0.10)'
@@ -297,11 +320,28 @@ export default function ReceiptCard({ receiptData, showActions = true, onAfterEx
       id="printable-receipt"
     >
       {/* Top Brand Stripe */}
-      <div className="h-2 w-full"
+      <div className="h-2 w-full relative z-10"
         style={{ background: 'linear-gradient(90deg, #1D1E81 0%, #4F46E5 60%, #0AECD1 100%)' }} />
 
+      {/* Security Watermark Emblem */}
+      <div 
+        aria-hidden="true"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-0"
+        style={{
+          width: '240px',
+          height: '240px',
+          opacity: 0.045,
+        }}
+      >
+        <img
+          src="/logo.png"
+          alt="Security Watermark"
+          className="w-full h-full object-contain"
+        />
+      </div>
+
       {/* Main Content Area */}
-      <div className="p-5 sm:p-6 space-y-4.5">
+      <div className="p-5 sm:p-6 space-y-4.5 relative z-10">
 
         {/* ── Official Brand Header ─────────────────────────────────────── */}
         <div className="flex items-center justify-between pb-3"
